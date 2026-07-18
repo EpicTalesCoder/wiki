@@ -6,6 +6,7 @@ COPY packages/starlight-theme-obsidian/package.json ./packages/starlight-theme-o
 COPY docs/package.json ./docs/
 RUN pnpm install --frozen-lockfile
 COPY . .
+RUN npm --prefix docs i starlight-theme-obsidian
 RUN pnpm --prefix docs run build -- --base /
 
 FROM nginx:alpine
