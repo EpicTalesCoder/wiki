@@ -28,7 +28,7 @@
 	"bugs": "https://github.com/fevol/starlight-theme-obsidian/issues",
 	"scripts": {
 		"build": "pnpm --prefix docs run build",
-		"heroku-postbuild": "pnpm --prefix docs run build",
+		"heroku-postbuild": "pnpm --prefix docs run build:heroku",
 		"start": "npx serve docs/dist -s -l $PORT",
 		"format": "prettier --write .",
 		"release-beta": "bun run scripts/bump-version.ts beta",

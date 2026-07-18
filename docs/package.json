@@ -8,6 +8,7 @@
 		"dev-host": "astro dev --host",
 		"start": "astro dev",
 		"build": "astro check && astro build",
+		"build:heroku": "astro check && astro build --base /",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
