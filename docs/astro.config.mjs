@@ -4,7 +4,7 @@ import starlightSiteGraph from 'starlight-site-graph';
 import starlightThemeObsidian from 'starlight-theme-obsidian';
 import starlightLinksValidator from 'starlight-links-validator';
 
-const isHeroku = Boolean(process.env.HEROKU_APP_NAME || process.env.HEROKU_APP_ID);
+const isHeroku = Boolean(process.env.HEROKU_APP_NAME || process.env.HEROKU_APP_ID || process.env.HEROKU_RELEASE_VERSION);
 const site = isHeroku
     ? `https://${process.env.HEROKU_APP_NAME || 'starlight-theme-obsidian'}.herokuapp.com`
     : 'https://fevol.github.io';
