@@ -21,6 +21,7 @@
 		"starlight-package-managers": "^0.7.0",
 		"starlight-site-graph": "^0.5.0",
 		"starlight-theme-obsidian": "file:../packages/starlight-theme-obsidian",
+		"sharp": "^0.34.5",
 		"typescript": "^5.9.3"
 	}
 }
