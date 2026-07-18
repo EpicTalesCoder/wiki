@@ -2,10 +2,10 @@
   "name": "starlight-theme-obsidian",
   "description": "Heroku deployment for the Starlight Obsidian docs site",
   "buildpacks": [
+    { "url": "https://github.com/niteo/heroku-buildpack-pnpm" },
     { "url": "heroku/nodejs" }
   ],
   "env": {
-    "APP_BASE": "docs",
-    "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
+    "APP_BASE": "docs"
   }
 }
