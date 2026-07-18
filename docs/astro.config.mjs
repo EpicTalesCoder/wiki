@@ -28,12 +28,12 @@ export default defineConfig({
                 './src/styles/global.css'
             ],
             plugins: [
-                starlightLinksValidator({
+                isHeroku ? null : starlightLinksValidator({
                     errorOnInvalidHashes: false
                 }),
                 starlightSiteGraph(),
 				starlightThemeObsidian({ overrideWarnings: true }),
-            ],
+            ].filter(Boolean),
             favicon: './favicon.svg',
             sidebar: [
                 {
