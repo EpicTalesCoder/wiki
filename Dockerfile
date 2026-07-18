@@ -12,3 +12,4 @@ FROM nginx:alpine
 COPY --from=builder /app/docs/dist /usr/share/nginx/html
 COPY nginx.template.conf /etc/nginx/templates/default.conf.template
 EXPOSE 80
+CMD ["sh", "-c", "envsubst '$PORT' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
