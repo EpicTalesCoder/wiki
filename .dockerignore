@@ -1,0 +1,7 @@
+node_modules
+docs/node_modules
+docs/.astro
+docs/dist
+.git
+.github
+.husky
