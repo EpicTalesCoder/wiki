@@ -4,9 +4,15 @@ import starlightSiteGraph from 'starlight-site-graph';
 import starlightThemeObsidian from 'starlight-theme-obsidian';
 import starlightLinksValidator from 'starlight-links-validator';
 
+const isHeroku = Boolean(process.env.HEROKU_APP_NAME || process.env.HEROKU_APP_ID);
+const site = isHeroku
+    ? `https://${process.env.HEROKU_APP_NAME || 'starlight-theme-obsidian'}.herokuapp.com`
+    : 'https://fevol.github.io';
+const base = isHeroku ? '/' : '/starlight-theme-obsidian';
+
 export default defineConfig({
-    site: "https://fevol.github.io",
-    base: "/starlight-theme-obsidian",
+    site,
+    base,
     integrations: [
         starlight({
             title: 'Starlight Obsidian Theme',

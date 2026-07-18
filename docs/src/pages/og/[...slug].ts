@@ -8,12 +8,9 @@ const entries = await getCollection('docs');
 // frontmatter data as value.
 const pages = Object.fromEntries(entries.map(({ data, id }) => [id, { data }]));
 
-export const { getStaticPaths, GET } = OGImageRoute({
+export const { getStaticPaths, GET } = await OGImageRoute({
 	// Pass down the documentation pages.
 	pages,
-	// Define the name of the parameter used in the endpoint path, here `slug`
-	// as the file is named `[...slug].ts`.
-	param: 'slug',
 	// Define a function called for each page to customize the generated image.
 	getImageOptions: (_path, page: (typeof pages)[number]) => {
 		return {

@@ -1,19 +1,16 @@
 {
-	"name": "starlight-theme-obsidian",
+	"name": "starlight-theme-obsidian-workspace",
 	"version": "0.4.1",
 	"license": "MIT",
 	"description": "A Starlight theme inspired by the Obsidian Publish website theme",
 	"author": "Fevol",
 	"type": "module",
-	"engines": {
-		"node": ">=18"
-	},
 	"private": true,
 	"sideEffects": false,
-	"workspaces": [
-		"packages/*",
-		"docs/"
-	],
+	"engines": {
+		"node": ">=20"
+	},
+	"packageManager": "pnpm@11.14.0",
 	"keywords": [
 		"starlight",
 		"plugin",
@@ -30,6 +27,9 @@
 	},
 	"bugs": "https://github.com/fevol/starlight-theme-obsidian/issues",
 	"scripts": {
+		"build": "npm --prefix docs run build",
+		"heroku-postbuild": "npm --prefix docs run build",
+		"start": "npm --prefix docs run preview -- --host 0.0.0.0 --port $PORT",
 		"format": "prettier --write .",
 		"release-beta": "bun run scripts/bump-version.ts beta",
 		"release-patch": "bun run scripts/bump-version.ts patch",
