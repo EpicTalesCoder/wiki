@@ -2,7 +2,9 @@
   "name": "starlight-theme-obsidian",
   "description": "Heroku deployment for the Starlight Obsidian docs site",
   "buildpacks": [
-    { "url": "heroku/nodejs" }
+    {
+      "url": "heroku/nodejs"
+    }
   ],
   "env": {
     "APP_BASE": "docs",

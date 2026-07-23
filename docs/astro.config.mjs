@@ -18,8 +18,8 @@ export default defineConfig({
             title: 'Starlight Obsidian Theme',
             credits: true,
             social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/fevol/starlight-theme-obsidian'},
-				{ icon: 'discord', label: 'Discord', href: 'https://discord.com/users/264169866511122432' },
+                { icon: 'github', label: 'GitHub', href: 'https://github.com/fevol/starlight-theme-obsidian' },
+                { icon: 'discord', label: 'Discord', href: 'https://discord.com/users/264169866511122432' },
             ],
             editLink: {
                 baseUrl: 'https://github.com/fevol/starlight-theme-obsidian/edit/main/docs/',
@@ -32,7 +32,7 @@ export default defineConfig({
                     errorOnInvalidHashes: false
                 }),
                 starlightSiteGraph(),
-				starlightThemeObsidian({ overrideWarnings: true }),
+                starlightThemeObsidian({ overrideWarnings: true }),
             ],
             favicon: './favicon.svg',
             sidebar: [
@@ -45,10 +45,10 @@ export default defineConfig({
                         { label: 'Changelog', link: '/changelog/' },
                     ],
                 },
-				{
-					label: 'Resources',
-					autogenerate: { directory: 'resources' },
-				},
+                {
+                    label: 'Resources',
+                    autogenerate: { directory: 'resources' },
+                },
                 {
                     label: 'Configuration',
                     autogenerate: { directory: 'configuration' },
