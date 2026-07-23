@@ -1,0 +1,92 @@
+- generic [active] [ref=f15e1]:
+  - link "Skip to content" [ref=f15e2] [cursor=pointer]:
+    - /url: "#_top"
+  - generic [ref=f15e3]:
+    - banner [ref=f15e4]:
+      - generic [ref=f15e5]:
+        - link "Starlight Obsidian Theme" [ref=f15e7] [cursor=pointer]:
+          - /url: /
+        - button "Search" [ref=f15e11] [cursor=pointer]:
+          - generic [ref=f15e15]:
+            - generic [ref=f15e16]: Ctrl
+            - generic [ref=f15e17]: K
+        - generic [ref=f15e18]:
+          - generic [ref=f15e19]:
+            - link "GitHub" [ref=f15e20] [cursor=pointer]:
+              - /url: https://github.com/fevol/starlight-theme-obsidian
+            - link "Discord" [ref=f15e24] [cursor=pointer]:
+              - /url: https://discord.com/users/264169866511122432
+          - button "Select theme" [ref=f15e29] [cursor=pointer]
+    - main [ref=f15e40]:
+      - generic [ref=f15e42]:
+        - generic [ref=f15e43]:
+          - img "A glittering purple star being obscured by a moon" [ref=f15e44]
+          - generic [ref=f15e45]:
+            - generic [ref=f15e46]:
+              - heading "Starlight Obsidian" [level=1] [ref=f15e47]
+              - generic [ref=f15e48]: Starlight theme inspired by the style of Obsidian Publish websites.
+            - generic [ref=f15e49]:
+              - link "Getting Started" [ref=f15e50] [cursor=pointer]:
+                - /url: /getting-started/
+              - link "Examples" [ref=f15e54] [cursor=pointer]:
+                - /url: /examples/asides/
+        - generic [ref=f15e58]:
+          - generic [ref=f15e59]:
+            - heading "Features" [level=2] [ref=f15e60]
+            - link "Section titled “Features”" [ref=f15e61] [cursor=pointer]:
+              - /url: "#features"
+          - generic [ref=f15e66]:
+            - article [ref=f15e67]:
+              - paragraph [ref=f15e68]:
+                - generic [ref=f15e71]: Centered Reading
+              - paragraph [ref=f15e73]: Optimized for readability, content stays perfectly centered across devices, from small phones to large desktops.
+            - article [ref=f15e74]:
+              - paragraph [ref=f15e75]:
+                - generic [ref=f15e78]: Site Graph
+              - paragraph [ref=f15e80]:
+                - text: Explore the connections between your pages with the built-in
+                - link "Starlight Site Graph" [ref=f15e81] [cursor=pointer]:
+                  - /url: https://github.com/Fevol/starlight-site-graph
+                - text: plugin.
+            - article [ref=f15e82]:
+              - paragraph [ref=f15e83]:
+                - generic [ref=f15e86]: Obsidian-Inspired Styling
+              - paragraph [ref=f15e88]: Comes with sleek, minimalist theme inspired by the aesthetics of Obsidian Publish websites.
+          - generic [ref=f15e89]:
+            - heading "Next steps" [level=2] [ref=f15e90]
+            - link "Section titled “Next steps”" [ref=f15e91] [cursor=pointer]:
+              - /url: "#next-steps"
+          - generic [ref=f15e96]:
+            - article [ref=f15e97]:
+              - paragraph [ref=f15e98]:
+                - generic [ref=f15e101]: Install the theme
+              - paragraph [ref=f15e103]:
+                - text: Check the
+                - link "getting started guide" [ref=f15e104] [cursor=pointer]:
+                  - /url: /getting-started/
+                - text: for installation instructions.
+            - article [ref=f15e105]:
+              - paragraph [ref=f15e106]:
+                - generic [ref=f15e110]: Configure the theme
+              - paragraph [ref=f15e112]:
+                - text: Edit your config in the
+                - code [ref=f15e113]: astro.config.mjs
+                - text: file.
+            - article [ref=f15e114]:
+              - paragraph [ref=f15e115]:
+                - generic [ref=f15e118]: Preview the theme
+              - paragraph [ref=f15e120]:
+                - text: Check out the
+                - link "examples" [ref=f15e121] [cursor=pointer]:
+                  - /url: /examples/asides/
+                - text: to see the theme in action.
+            - article [ref=f15e122]:
+              - paragraph [ref=f15e123]:
+                - generic [ref=f15e126]: Read the docs
+              - paragraph [ref=f15e128]:
+                - text: Learn more in the
+                - link "Starlight Obsidian Theme Docs" [ref=f15e129] [cursor=pointer]:
+                  - /url: /configuration/graph/
+                - text: .
+        - link "Built with Starlight" [ref=f15e131] [cursor=pointer]:
+          - /url: https://starlight.astro.build

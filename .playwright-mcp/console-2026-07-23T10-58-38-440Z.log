@@ -1,0 +1,12 @@
+[   16832ms] ReferenceError: process is not defined
+    at node_modules/micromatch/node_modules/picomatch/lib/utils.js (http://localhost:4321/node_modules/.vite/deps/micromatch.js?v=f03a910d:1319:17)
+    at __require (http://localhost:4321/node_modules/.vite/deps/chunk-BUSYA2B4.js?v=bcce77a1:3:50)
+    at node_modules/micromatch/node_modules/picomatch/lib/scan.js (http://localhost:4321/node_modules/.vite/deps/micromatch.js?v=f03a910d:1379:17)
+    at __require (http://localhost:4321/node_modules/.vite/deps/chunk-BUSYA2B4.js?v=bcce77a1:3:50)
+    at node_modules/micromatch/node_modules/picomatch/lib/picomatch.js (http://localhost:4321/node_modules/.vite/deps/micromatch.js?v=f03a910d:2712:16)
+    at __require (http://localhost:4321/node_modules/.vite/deps/chunk-BUSYA2B4.js?v=bcce77a1:3:50)
+    at node_modules/micromatch/node_modules/picomatch/index.js (http://localhost:4321/node_modules/.vite/deps/micromatch.js?v=f03a910d:2852:22)
+    at __require (http://localhost:4321/node_modules/.vite/deps/chunk-BUSYA2B4.js?v=bcce77a1:3:50)
+    at node_modules/micromatch/index.js (http://localhost:4321/node_modules/.vite/deps/micromatch.js?v=f03a910d:2861:21)
+    at __require (http://localhost:4321/node_modules/.vite/deps/chunk-BUSYA2B4.js?v=bcce77a1:3:50)
+[  267043ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:4321/@vite/client:1596

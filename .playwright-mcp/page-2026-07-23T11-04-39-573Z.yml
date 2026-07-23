@@ -1,0 +1,327 @@
+- generic [active] [ref=f2e1]:
+  - link "Skip to content" [ref=f2e2] [cursor=pointer]:
+    - /url: "#_top"
+  - generic [ref=f2e3]:
+    - navigation "Main" [ref=f2e4]:
+      - generic [ref=f2e6]:
+        - generic [ref=f2e7]:
+          - link "Starlight Obsidian Theme" [ref=f2e9] [cursor=pointer]:
+            - /url: /starlight-theme-obsidian/
+          - button "Search" [ref=f2e12] [cursor=pointer]:
+            - generic [ref=f2e16]:
+              - generic [ref=f2e17]: Ctrl
+              - generic [ref=f2e18]: K
+          - generic [ref=f2e19]:
+            - generic [ref=f2e20]:
+              - link "GitHub" [ref=f2e21] [cursor=pointer]:
+                - /url: https://github.com/fevol/starlight-theme-obsidian
+              - link "Discord" [ref=f2e25] [cursor=pointer]:
+                - /url: https://discord.com/users/264169866511122432
+            - button "Select theme" [ref=f2e30] [cursor=pointer]
+        - list [ref=f2e39]:
+          - listitem [ref=f2e40]:
+            - group [ref=f2e41]:
+              - generic "Start Here" [ref=f2e42] [cursor=pointer]
+              - list [ref=f2e46]:
+                - listitem [ref=f2e47]:
+                  - link "Getting Started" [ref=f2e48] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/getting-started/
+                - listitem [ref=f2e49]:
+                  - link "Contributing" [ref=f2e50] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/contributing/
+                - listitem [ref=f2e51]:
+                  - link "Attribution" [ref=f2e52] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/attribution/
+                - listitem [ref=f2e53]:
+                  - link "Changelog" [ref=f2e54] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/changelog/
+          - listitem [ref=f2e55]:
+            - group [ref=f2e56]:
+              - generic "Resources" [ref=f2e57] [cursor=pointer]
+              - list [ref=f2e61]:
+                - listitem [ref=f2e62]:
+                  - link "Plugins and Templates" [ref=f2e63] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/resources/
+          - listitem [ref=f2e64]:
+            - group [ref=f2e65]:
+              - generic "Configuration" [ref=f2e66] [cursor=pointer]
+              - list [ref=f2e70]:
+                - listitem [ref=f2e71]:
+                  - link "Overview" [ref=f2e72] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/configuration/
+                - listitem [ref=f2e73]:
+                  - link "CSS" [ref=f2e74] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/configuration/css/
+                - listitem [ref=f2e75]:
+                  - link "Graph" [ref=f2e76] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/configuration/graph/
+                - listitem [ref=f2e77]:
+                  - link "Backlinks" [ref=f2e78] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/configuration/backlinks/
+          - listitem [ref=f2e79]:
+            - group [ref=f2e80]:
+              - generic "Components" [ref=f2e81] [cursor=pointer]
+              - list [ref=f2e85]:
+                - listitem [ref=f2e86]:
+                  - link "Overview" [ref=f2e87] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/components/
+                - listitem [ref=f2e88]:
+                  - link "<Sidebar>" [ref=f2e89] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/components/sidebar/
+                - listitem [ref=f2e90]:
+                  - link "<PageSidebar>" [ref=f2e91] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/components/pagesidebar/
+                - listitem [ref=f2e92]:
+                  - link "<PageFrame>" [ref=f2e93] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/components/pageframe/
+                - listitem [ref=f2e94]:
+                  - link "<Pagination>" [ref=f2e95] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/components/pagination/
+                - listitem [ref=f2e96]:
+                  - link "<ThemeSelect>" [ref=f2e97] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/components/themeselect/
+          - listitem [ref=f2e98]:
+            - group [ref=f2e99]:
+              - generic "Examples" [ref=f2e100] [cursor=pointer]
+              - list [ref=f2e104]:
+                - listitem [ref=f2e105]:
+                  - link "Asides" [ref=f2e106] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/asides/
+                - listitem [ref=f2e107]:
+                  - link "Badges Badge" [ref=f2e108] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/badges/
+                    - text: Badges
+                    - generic [ref=f2e109]: Badge
+                - listitem [ref=f2e110]:
+                  - link "Banner" [ref=f2e111] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/banner/
+                - listitem [ref=f2e112]:
+                  - link "Banner - Splash" [ref=f2e113] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/banner-splash/
+                - listitem [ref=f2e114]:
+                  - link "Cards" [ref=f2e115] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/cards/
+                - listitem [ref=f2e116]:
+                  - link "Code Blocks" [ref=f2e117] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/code-blocks/
+                - listitem [ref=f2e118]:
+                  - link "Draft" [ref=f2e119] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/draft/
+                - listitem [ref=f2e120]:
+                  - link "File Tree" [ref=f2e121] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/file-tree/
+                - listitem [ref=f2e122]:
+                  - link "Hero" [ref=f2e123] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/hero/
+                - listitem [ref=f2e124]:
+                  - link "Link Buttons" [ref=f2e125] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/link-buttons/
+                - listitem [ref=f2e126]:
+                  - link "Markdown" [ref=f2e127] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/markdown/
+                - listitem [ref=f2e128]:
+                  - link "Steps" [ref=f2e129] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/steps/
+                - listitem [ref=f2e130]:
+                  - link "Tabs" [ref=f2e131] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/examples/tabs/
+    - generic [ref=f2e146]:
+      - complementary [ref=f2e147]:
+        - generic [ref=f2e148]:
+          - generic [ref=f2e149]:
+            - heading "Graph View" [level=2] [ref=f2e150]
+            - generic [ref=f2e153]:
+              - button [ref=f2e154] [cursor=pointer]
+              - button [ref=f2e160] [cursor=pointer]
+              - button [ref=f2e164] [cursor=pointer]
+              - button [ref=f2e171] [cursor=pointer]
+              - button [ref=f2e176] [cursor=pointer]
+          - navigation [ref=f2e420]:
+            - heading "On this page" [level=2] [ref=f2e421]
+            - list [ref=f2e422]:
+              - listitem [ref=f2e423]:
+                - link "Overview" [ref=f2e424] [cursor=pointer]:
+                  - /url: "#_top"
+              - listitem [ref=f2e425]:
+                - link "Prerequisites" [ref=f2e426] [cursor=pointer]:
+                  - /url: "#prerequisites"
+              - listitem [ref=f2e427]:
+                - link "Installation" [ref=f2e428] [cursor=pointer]:
+                  - /url: "#installation"
+          - generic [ref=f2e181]:
+            - heading "Backlinks" [level=2] [ref=f2e182]
+            - list [ref=f2e183]:
+              - listitem [ref=f2e184]:
+                - link "Starlight Obsidian" [ref=f2e185] [cursor=pointer]:
+                  - /url: /starlight-theme-obsidian/
+      - main [ref=f2e187]:
+        - heading "Getting Started" [level=1] [ref=f2e190]
+        - generic [ref=f2e192]:
+          - generic [ref=f2e193]:
+            - paragraph [ref=f2e194]:
+              - text: The Starlight Obsidian Theme is a
+              - link "Starlight" [ref=f2e195] [cursor=pointer]:
+                - /url: https://starlight.astro.build
+              - text: theme inspired by the style of
+              - link "Obsidian Publish" [ref=f2e196] [cursor=pointer]:
+                - /url: https://obsidian.md/publish
+              - text: websites. This project is in no way affiliated with
+              - link "Obsidian" [ref=f2e197] [cursor=pointer]:
+                - /url: https://obsidian.md/
+              - text: .
+            - paragraph [ref=f2e198]:
+              - text: Various
+              - link "examples" [ref=f2e199] [cursor=pointer]:
+                - /url: /starlight-theme-obsidian/examples/asides/
+              - text: are provided to showcase how the theme will display content.
+            - generic [ref=f2e200]:
+              - heading "Prerequisites" [level=2] [ref=f2e201]
+              - link "Section titled “Prerequisites”" [ref=f2e202] [cursor=pointer]:
+                - /url: "#prerequisites"
+            - paragraph [ref=f2e207]:
+              - text: You will need to have a Starlight website set up. If you don’t have one yet, follow the
+              - link "“Getting Started”" [ref=f2e208] [cursor=pointer]:
+                - /url: https://starlight.astro.build/getting-started
+              - text: guide from the official Starlight docs to create one.
+            - complementary "Warning" [ref=f2e209]:
+              - paragraph [ref=f2e210]: Warning
+              - generic [ref=f2e213]:
+                - paragraph [ref=f2e214]:
+                  - text: The latest version of this theme requires a
+                  - link "Starlight" [ref=f2e215] [cursor=pointer]:
+                    - /url: https://starlight.astro.build
+                  - text: version of at least
+                  - code [ref=f2e216]: ^0.33.0
+                  - text: (and Astro
+                  - code [ref=f2e217]: ^5.5.0
+                  - text: ). Some older versions of Starlight are supported in previous releases of this theme, but they will not receive any new features or bug fixes.
+                - paragraph [ref=f2e218]:
+                  - text: New features for this plugin will only be added to recent versions of Starlight/Astro, backwards compatibility is not guaranteed, and in many cases, this will break due to breaking changes in the downstream packages. Refer to the
+                  - link "CHANGELOG" [ref=f2e219] [cursor=pointer]:
+                    - /url: /starlight-theme-obsidian/changelog
+                  - text: for more information about specific changes.
+            - generic [ref=f2e220]:
+              - heading "Installation" [level=2] [ref=f2e221]
+              - link "Section titled “Installation”" [ref=f2e222] [cursor=pointer]:
+                - /url: "#installation"
+            - list [ref=f2e227]:
+              - listitem [ref=f2e228]:
+                - text: The Starlight Obsidian theme is a Starlight
+                - link "plugin" [ref=f2e229] [cursor=pointer]:
+                  - /url: https://starlight.astro.build/reference/plugins/
+                - text: "that you can install using your favorite package manager:"
+                - generic [ref=f2e230]:
+                  - tablist [ref=f2e232]:
+                    - tab "npm" [selected] [ref=f2e233] [cursor=pointer]
+                    - tab "pnpm" [ref=f2e236] [cursor=pointer]
+                    - tab "yarn" [ref=f2e239] [cursor=pointer]
+                    - tab "bun" [ref=f2e242] [cursor=pointer]
+                  - tabpanel "npm" [ref=f2e245]:
+                    - figure "Terminal window" [ref=f2e247]:
+                      - code [ref=f2e252]:
+                        - generic [ref=f2e253]: npm i starlight-theme-obsidian
+                      - button "Copy to clipboard" [ref=f2e256] [cursor=pointer]
+              - listitem [ref=f2e258]:
+                - text: Configure the plugin in your Starlight
+                - link "configuration" [ref=f2e259] [cursor=pointer]:
+                  - /url: https://starlight.astro.build/reference/configuration/#plugins
+                - text: in the
+                - code [ref=f2e260]: astro.config.mjs
+                - text: file.
+                - figure "astro.config.mjs" [ref=f2e262]:
+                  - code [ref=f2e266]:
+                    - generic [ref=f2e267]: import starlight from '@astrojs/starlight'
+                    - generic [ref=f2e269]: "import { defineConfig } from 'astro/config'"
+                    - generic [ref=f2e271]: + import starlightThemeObsidian from 'starlight-theme-obsidian'
+                    - generic [ref=f2e275]: "export default defineConfig({"
+                    - generic [ref=f2e277]: "integrations: ["
+                    - generic [ref=f2e280]: "starlight({"
+                    - generic [ref=f2e282]: "+ plugins: [starlightThemeObsidian()],"
+                    - generic [ref=f2e285]: "title: 'My Docs',"
+                    - generic [ref=f2e288]: "}),"
+                    - generic [ref=f2e291]: "],"
+                    - generic [ref=f2e294]: "})"
+                  - button "Copy to clipboard" [ref=f2e297] [cursor=pointer]
+              - listitem [ref=f2e299]:
+                - text: Add the Obsidian Theme
+                - link "content schema" [ref=f2e300] [cursor=pointer]:
+                  - /url: https://docs.astro.build/en/guides/content-collections/#defining-a-collection-schema
+                - text: to your pages to enable type checking on the page’s frontmatter, you will need to define the
+                - code [ref=f2e301]: src/content/config.ts
+                - text: file if it doesn’t exist yet.
+                - figure "content/docs/config.ts" [ref=f2e303]:
+                  - region [ref=f2e414]:
+                    - code [ref=f2e307]:
+                      - generic [ref=f2e308]: "+ import { docsSchema } from '@astrojs/starlight/schema';"
+                      - generic [ref=f2e310]: "+ import { defineCollection } from 'astro:content';"
+                      - generic [ref=f2e312]: "+ import { pageThemeObsidianSchema } from 'starlight-theme-obsidian/schema';"
+                      - generic [ref=f2e314]: +
+                      - generic [ref=f2e316]: "+ export const collections = {"
+                      - generic [ref=f2e319]:
+                        - text: +
+                        - generic [ref=f2e320]: "docs:"
+                        - text: "defineCollection({"
+                      - generic [ref=f2e322]:
+                        - text: +
+                        - generic [ref=f2e323]: "schema:"
+                        - text: "docsSchema({"
+                      - generic [ref=f2e325]:
+                        - text: +
+                        - generic [ref=f2e326]: "extend:"
+                        - text: pageThemeObsidianSchema
+                      - generic [ref=f2e328]:
+                        - text: +
+                        - generic [ref=f2e329]: "}"
+                        - text: )
+                      - generic [ref=f2e331]:
+                        - text: +
+                        - generic [ref=f2e332]: "}"
+                        - text: )
+                      - generic [ref=f2e334]:
+                        - text: +
+                        - generic [ref=f2e335]: "}"
+                        - text: ;
+                  - button "Copy to clipboard" [ref=f2e337] [cursor=pointer]
+              - listitem [ref=f2e339]:
+                - link "Start the development server" [ref=f2e340] [cursor=pointer]:
+                  - /url: https://starlight.astro.build/getting-started/#start-the-development-server
+                - text: to preview the theme in action.
+            - paragraph [ref=f2e341]: That’s it! You should now see the Starlight Obsidian theme applied to your Starlight website.
+            - paragraph [ref=f2e342]:
+              - text: You can now further configure the theme and the graph component in the sidebar by following the
+              - link "configuration" [ref=f2e343] [cursor=pointer]:
+                - /url: /starlight-theme-obsidian/configuration/graph/
+              - text: guide.
+            - complementary "Note" [ref=f2e344]:
+              - paragraph [ref=f2e345]: Note
+              - generic [ref=f2e348]:
+                - paragraph [ref=f2e349]:
+                  - text: If you want to
+                  - emphasis [ref=f2e350]: disable
+                  - text: "the graph and backlinks components which are added by default, you can do so by applying the following settings:"
+                - figure "astro.config.mjs" [ref=f2e352]:
+                  - code [ref=f2e356]:
+                    - generic [ref=f2e357]: import starlight from '@astrojs/starlight'
+                    - generic [ref=f2e359]: "import { defineConfig } from 'astro/config'"
+                    - generic [ref=f2e361]: import starlightThemeObsidian from 'starlight-theme-obsidian'
+                    - generic [ref=f2e365]: "export default defineConfig({"
+                    - generic [ref=f2e367]: "integrations: ["
+                    - generic [ref=f2e370]: "starlight({"
+                    - generic [ref=f2e372]: "plugins: [starlightThemeObsidian({"
+                    - generic [ref=f2e375]: "+ backlinks: false,"
+                    - generic [ref=f2e378]: "+ graph: false"
+                    - generic [ref=f2e381]: "})],"
+                    - generic [ref=f2e384]: "title: 'My Docs',"
+                    - generic [ref=f2e387]: "}),"
+                    - generic [ref=f2e390]: "],"
+                    - generic [ref=f2e393]: "})"
+                  - button "Copy to clipboard" [ref=f2e396] [cursor=pointer]
+          - generic [ref=f2e398]:
+            - link "Edit page" [ref=f2e400] [cursor=pointer]:
+              - /url: https://github.com/fevol/starlight-theme-obsidian/edit/main/docs/src/content/docs/getting-started.mdx
+            - link [ref=f2e404] [cursor=pointer]:
+              - /url: /starlight-theme-obsidian/contributing/
+              - generic [ref=f2e405]: Next
+              - paragraph [ref=f2e408]: Contributing
+            - link "Built with Starlight" [ref=f2e409] [cursor=pointer]:
+              - /url: https://starlight.astro.build

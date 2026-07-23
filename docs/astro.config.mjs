@@ -4,11 +4,11 @@ import starlightSiteGraph from 'starlight-site-graph';
 import starlightThemeObsidian from 'starlight-theme-obsidian';
 import starlightLinksValidator from 'starlight-links-validator';
 
-const isHeroku = Boolean(process.env.HEROKU_APP_NAME || process.env.HEROKU_APP_ID || process.env.HEROKU_RELEASE_VERSION);
+const isHeroku = Boolean(process.env.HEROKU_APP_NAME || process.env.HEROKU_APP_ID);
 const site = isHeroku
     ? `https://${process.env.HEROKU_APP_NAME || 'starlight-theme-obsidian'}.herokuapp.com`
-    : 'https://fevol.github.io';
-const base = isHeroku ? '/' : '/starlight-theme-obsidian';
+    : 'http://localhost:4321';
+const base = '/';
 
 export default defineConfig({
     site,
@@ -28,12 +28,12 @@ export default defineConfig({
                 './src/styles/global.css'
             ],
             plugins: [
-                isHeroku ? null : starlightLinksValidator({
+                starlightLinksValidator({
                     errorOnInvalidHashes: false
                 }),
                 starlightSiteGraph(),
 				starlightThemeObsidian({ overrideWarnings: true }),
-            ].filter(Boolean),
+            ],
             favicon: './favicon.svg',
             sidebar: [
                 {

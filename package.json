@@ -27,9 +27,9 @@
 	},
 	"bugs": "https://github.com/fevol/starlight-theme-obsidian/issues",
 	"scripts": {
-		"build": "pnpm --prefix docs run build",
-		"heroku-postbuild": "pnpm --prefix docs run build:heroku",
-		"start": "npx serve docs/dist -s -l $PORT",
+		"build": "npm --prefix docs run build",
+		"heroku-postbuild": "npm --prefix docs run build",
+		"start": "npm --prefix docs run preview -- --host 0.0.0.0 --port $PORT",
 		"format": "prettier --write .",
 		"release-beta": "bun run scripts/bump-version.ts beta",
 		"release-patch": "bun run scripts/bump-version.ts patch",
@@ -38,8 +38,7 @@
 	},
 	"dependencies": {
 		"@types/node": "^22.15.3",
-		"prettier": "^3.5.3",
-		"serve": "^14.2.4"
+		"prettier": "^3.5.3"
 	},
 	"overrides": {
 		"picomatch": "^4.0.3"

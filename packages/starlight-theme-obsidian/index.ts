@@ -12,7 +12,7 @@ export default function plugin(userConfig?: StarlightThemeObsidianConfig): Starl
 				i18nArgs = args;
 			},
 			'config:setup': async args => {
-				const { config, logger, updateConfig } = args;
+				const { config, logger, updateConfig, addIntegration } = args;
 
 				const customCss: typeof config.customCss = [
 					'starlight-theme-obsidian/styles/layers.css',
@@ -64,11 +64,32 @@ export default function plugin(userConfig?: StarlightThemeObsidianConfig): Starl
 					}
 				}
 
-				if (config.plugins?.some(plugin => plugin.name === 'starlight-site-graph-plugin')) {
-					logger.info('Detected `starlight-site-graph` plugin, applying compatibility settings...');
-					overridableComponents.PageSidebar += `-slsg`;
-					customCss.push('starlight-theme-obsidian/styles/extensions/starlight-site-graph.css');
-				}
+			if (config.plugins?.some(plugin => plugin.name === 'starlight-site-graph-plugin')) {
+				logger.info('Detected `starlight-site-graph` plugin, applying compatibility settings...');
+				overridableComponents.PageSidebar += `-slsg`;
+				customCss.push('starlight-theme-obsidian/styles/extensions/starlight-site-graph.css');
+
+				// `starlight-site-graph` ships `micromatch` (via `picomatch`) to the client-side graph
+				// component. `picomatch` reads the Node-only `process.platform` and `process.version`
+				// globals at module scope, which are undefined in the browser and crash the graph
+				// component (`ReferenceError: process is not defined`). Provide static replacements so
+				// the client bundle evaluates without referencing `process`.
+				addIntegration({
+					name: 'starlight-theme-obsidian:site-graph-compat',
+					hooks: {
+						'astro:config:setup'({ updateConfig: updateAstroConfig }) {
+							updateAstroConfig({
+								vite: {
+									define: {
+										'process.platform': JSON.stringify('linux'),
+										'process.version': JSON.stringify('v20.0.0'),
+									},
+								},
+							});
+						},
+					},
+				});
+			}
 
 				if (config.plugins?.some(plugin => plugin.name === 'starlight-sidebar-topics')) {
 					logger.info('Detected `starlight-sidebar-topics` plugin, applying compatibility settings...');
