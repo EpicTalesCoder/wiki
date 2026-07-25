@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
 import starlight from '@astrojs/starlight';
 import starlightSiteGraph from 'starlight-site-graph';
 import starlightThemeObsidian from 'starlight-theme-obsidian';
@@ -32,6 +33,9 @@ const sidebar = sidebarConfig.map(sec => {
 export default defineConfig({
     site,
     base,
+    // Run as a Node SSR server (hybrid): Starlight pages stay prerendered,
+    // API routes (prerender = false) run server-side so the editor + MCP work.
+    adapter: node({ mode: 'standalone' }),
     integrations: [
         starlight({
             title: 'Starlight Obsidian Theme',
