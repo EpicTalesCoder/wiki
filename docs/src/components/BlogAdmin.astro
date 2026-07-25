@@ -1,0 +1,417 @@
+<div id="blog-admin">
+    <div id="blog-restart-banner" class="blog-restart-banner" style="display:none">Đang khởi động lại server để cập nhật nội dung — vui lòng chờ vài giây rồi tải lại trang.</div>
+    <div id="blog-loading">Đang tải...</div>
+</div>
+
+<style>
+    .blog-page-title {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: var(--sl-color-text);
+    }
+
+    .blog-category-section {
+        margin-bottom: 2rem;
+    }
+
+    .blog-category-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--sl-color-hairline);
+    }
+
+    .blog-category-header h2 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin: 0;
+        color: var(--sl-color-text);
+    }
+
+    .blog-create-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.375rem 0.75rem;
+        border: 1px solid var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-sm);
+        background: transparent;
+        color: var(--sl-color-accent-high);
+        font-size: 0.8125rem;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .blog-create-btn:hover {
+        background-color: var(--sl-color-accent);
+        color: var(--sl-color-black);
+        border-color: transparent;
+    }
+
+    .blog-post-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.875rem 1rem;
+        background-color: var(--sl-color-black);
+        box-shadow: 0 0 0 1px var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-md);
+        margin-bottom: 0.5rem;
+        transition: box-shadow 0.2s;
+    }
+    .blog-post-card:hover {
+        box-shadow: 0 0 0 1px var(--sl-color-accent);
+    }
+
+    .blog-post-card .post-link {
+        text-decoration: none;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .blog-post-card .post-title {
+        font-size: 0.9375rem;
+        font-weight: 500;
+        margin: 0;
+        color: var(--sl-color-text);
+        transition: color 0.2s;
+    }
+    .blog-post-card:hover .post-title {
+        color: var(--sl-color-accent-high);
+    }
+
+    .blog-post-card .post-desc {
+        font-size: 0.8125rem;
+        color: var(--sl-color-gray-3);
+        margin: 0.25rem 0 0;
+        line-height: 1.4;
+    }
+
+    .blog-post-card .post-date {
+        font-size: 0.6875rem;
+        color: var(--sl-color-gray-4);
+        margin: 0.25rem 0 0;
+    }
+
+    .blog-delete-btn {
+        flex-shrink: 0;
+        margin-left: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-sm);
+        background: transparent;
+        color: var(--sl-color-gray-3);
+        font-size: 0.75rem;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .blog-delete-btn:hover {
+        background: hsl(0, 70%, 50%);
+        color: #fff;
+        border-color: hsl(0, 70%, 50%);
+    }
+
+    .blog-empty {
+        font-size: 0.875rem;
+        color: var(--sl-color-gray-4);
+        padding: 0.75rem 0;
+        font-style: italic;
+    }
+
+    .blog-modal-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        backdrop-filter: blur(4px);
+    }
+
+    .blog-modal {
+        background: var(--sl-color-bg);
+        box-shadow: 0 0 0 1px var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-lg);
+        padding: 1.5rem;
+        width: 90%;
+        max-width: 32rem;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .blog-modal h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin: 0 0 1.25rem;
+        color: var(--sl-color-text);
+    }
+
+    .blog-form-group {
+        margin-bottom: 1rem;
+    }
+
+    .blog-form-group label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--sl-color-gray-3);
+        margin-bottom: 0.375rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .blog-form-group input,
+    .blog-form-group textarea,
+    .blog-form-group select {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        box-shadow: 0 0 0 1px var(--sl-color-hairline);
+        border: 1px solid transparent;
+        border-radius: var(--sl-border-radius-sm);
+        background: var(--sl-color-black);
+        color: var(--sl-color-text);
+        font-family: inherit;
+        font-size: 0.875rem;
+        box-sizing: border-box;
+        transition: border-color 0.2s;
+    }
+    .blog-form-group input:focus,
+    .blog-form-group textarea:focus,
+    .blog-form-group select:focus {
+        outline: none;
+        border-color: var(--sl-color-accent);
+    }
+
+    .blog-form-group textarea {
+        min-height: 10rem;
+        resize: vertical;
+    }
+
+    .blog-modal-actions {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+    }
+
+    .blog-btn-cancel {
+        padding: 0.4375rem 1rem;
+        border: 1px solid var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-sm);
+        background: transparent;
+        color: var(--sl-color-gray-2);
+        font-size: 0.8125rem;
+        font-family: inherit;
+        cursor: pointer;
+    }
+
+    .blog-btn-submit {
+        padding: 0.4375rem 1rem;
+        border-radius: var(--sl-border-radius-sm);
+        background: var(--sl-color-accent);
+        color: var(--sl-color-black);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .blog-btn-submit:hover {
+        background: var(--sl-color-accent-high);
+    }
+
+    .blog-btn-danger {
+        padding: 0.4375rem 1rem;
+        border-radius: var(--sl-border-radius-sm);
+        background: transparent;
+        color: hsl(0, 70%, 60%);
+        font-size: 0.8125rem;
+        font-family: inherit;
+        cursor: pointer;
+        border: 1px solid hsl(0, 70%, 60%);
+    }
+    .blog-btn-danger:hover {
+        background: hsl(0, 70%, 50%);
+        color: #fff;
+        border-color: hsl(0, 70%, 50%);
+    }
+
+    .blog-loading {
+        text-align: center;
+        color: var(--sl-color-gray-4);
+        padding: 2rem;
+    }
+
+    .blog-badge {
+        display: inline-block;
+        font-size: 0.6875rem;
+        padding: 0.0625rem 0.375rem;
+        border-radius: var(--sl-border-radius-sm);
+        color: var(--sl-color-gray-3);
+        background: var(--sl-color-black);
+        margin-right: 0.25rem;
+    }
+    .blog-restart-banner {
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: var(--sl-border-radius-sm);
+        background: var(--sl-color-accent);
+        color: var(--sl-color-black);
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+</style>
+
+<script>
+    const API = '/api/blog';
+    interface Post { slug: string; title: string; description: string; category: string; createdAt?: string; date?: string }
+    let posts: Post[] = [];
+    let categories: Record<string, Post[]> = {};
+
+    const container = document.getElementById('blog-admin')!;
+
+    async function loadPosts() {
+        try {
+            const res = await fetch(API);
+            posts = await res.json();
+            categories = {};
+            for (const post of posts) {
+                const cat = post.category || 'Khác';
+                if (!categories[cat]) categories[cat] = [];
+                categories[cat].push(post);
+            }
+            if (Object.keys(categories).length === 0) {
+                categories = { 'Chưa có bài viết': [] };
+            }
+            render();
+        } catch {
+            container.innerHTML = '<p class="blog-empty">Không thể tải bài viết. Đảm bảo API server đang chạy: <code>pnpm --prefix docs run api</code></p>';
+        }
+    }
+
+    async function reloadServer() {
+        try {
+            await fetch('/api/reload', { method: 'POST' });
+        } catch { /* server restarting — ignore */ }
+        const banner = document.getElementById('blog-restart-banner');
+        if (banner) banner.style.display = '';
+    }
+
+    function render() {
+        let html = '<h1 class="blog-page-title">Blog</h1>';
+        for (const [cat, catPosts] of Object.entries(categories)) {
+            html += '<div class="blog-category-section">';
+            html += '<div class="blog-category-header">';
+            html += '<h2>' + cat + '</h2>';
+            html += '<button class="blog-create-btn" onclick="openCreateModal(\'' + cat + '\')">+ Tạo bài viết</button>';
+            html += '</div>';
+            for (const post of catPosts) {
+                const dateStr = post.date ? new Date(post.date).toLocaleDateString('vi-VN', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+                html += '<div class="blog-post-card">';
+                html += '<a href="/blog/posts/' + post.slug + '/" class="post-link">';
+                html += '<p class="post-title">' + post.title + '</p>';
+                if (post.description) html += '<p class="post-desc">' + post.description + '</p>';
+                if (dateStr) html += '<p class="post-date">' + dateStr + '</p>';
+                html += '</a>';
+                html += '<button class="blog-delete-btn" onclick="event.preventDefault(); deletePost(\'' + post.slug + '\')">Xóa</button>';
+                html += '</div>';
+            }
+            if (catPosts.length === 0) {
+                html += '<p class="blog-empty">Chưa có bài viết trong đề mục này.</p>';
+            }
+            html += '</div>';
+        }
+        container.innerHTML = html;
+    }
+
+    function openCreateModal(defaultCategory: string) {
+        const catOptions = Object.keys(categories).map(c =>
+            '<option value="' + c + '"' + (c === defaultCategory ? ' selected' : '') + '>' + c + '</option>'
+        ).join('');
+        const overlay = document.createElement('div');
+        overlay.className = 'blog-modal-overlay';
+        overlay.id = 'create-modal';
+        overlay.innerHTML =
+            '<div class="blog-modal">' +
+            '<h3>Tạo bài viết mới</h3>' +
+            '<div class="blog-form-group"><label>Tiêu đề</label><input type="text" id="new-title" placeholder="Nhập tiêu đề..." /></div>' +
+            '<div class="blog-form-group"><label>Đề mục</label><select id="new-category">' + catOptions + '<option value="__new">+ Tạo đề mục mới</option></select></div>' +
+            '<div class="blog-form-group" id="new-cat-group" style="display:none"><label>Tên đề mục mới</label><input type="text" id="new-category-name" placeholder="Nhập tên đề mục..." /></div>' +
+            '<div class="blog-form-group"><label>Mô tả</label><input type="text" id="new-desc" placeholder="Nhập mô tả..." /></div>' +
+            '<div class="blog-form-group"><label>Nội dung (Markdown)</label><textarea id="new-content" placeholder="Nhập nội dung bài viết..."></textarea></div>' +
+            '<div class="blog-modal-actions">' +
+            '<button class="blog-btn-cancel" onclick="closeCreateModal()">Hủy</button>' +
+            '<button class="blog-btn-submit" onclick="createPost()">Tạo</button>' +
+            '</div></div>';
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) closeCreateModal(); });
+        document.body.appendChild(overlay);
+        const select = document.getElementById('new-category') as HTMLSelectElement;
+        select.addEventListener('change', () => {
+            const group = document.getElementById('new-cat-group')!;
+            group.style.display = select.value === '__new' ? '' : 'none';
+        });
+        (document.getElementById('new-title') as HTMLInputElement).focus();
+    }
+
+    function closeCreateModal() {
+        const modal = document.getElementById('create-modal');
+        if (modal) modal.remove();
+    }
+
+    async function createPost() {
+        const titleEl = document.getElementById('new-title') as HTMLInputElement;
+        const selectEl = document.getElementById('new-category') as HTMLSelectElement;
+        const newCatEl = document.getElementById('new-category-name') as HTMLInputElement;
+        const descEl = document.getElementById('new-desc') as HTMLInputElement;
+        const contentEl = document.getElementById('new-content') as HTMLTextAreaElement;
+
+        const title = titleEl.value.trim();
+        const category = selectEl.value === '__new' ? (newCatEl.value.trim() || 'Khác') : selectEl.value;
+        const description = descEl.value.trim();
+        const content = contentEl.value.trim();
+
+        if (!title) { titleEl.style.borderColor = 'hsl(0, 70%, 50%)'; return; }
+
+        try {
+            const res = await fetch(API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'create', title, description, content, category }),
+            });
+            const data = await res.json();
+            if (data.success) {
+                closeCreateModal();
+                await loadPosts();
+                reloadServer();
+            } else {
+                alert(data.error || 'Có lỗi xảy ra');
+            }
+        } catch { alert('Không thể tạo bài viết.'); }
+    }
+
+    async function deletePost(slug: string) {
+        if (!confirm('Bạn có chắc muốn xóa bài viết này?')) return;
+        try {
+            const res = await fetch(API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'delete', slug }),
+            });
+            const data = await res.json();
+            if (data.success) { await loadPosts(); reloadServer(); }
+            else { alert(data.error || 'Có lỗi xảy ra'); }
+        } catch { alert('Không thể xóa bài viết.'); }
+    }
+
+    (window as any).openCreateModal = openCreateModal;
+    (window as any).closeCreateModal = closeCreateModal;
+    (window as any).createPost = createPost;
+    (window as any).deletePost = deletePost;
+
+    loadPosts();
+</script>

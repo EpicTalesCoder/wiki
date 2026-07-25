@@ -1,0 +1,33 @@
+---
+title: Hướng dẫn sử dụng Git cơ bản
+description: Hướng dẫn các lệnh Git cần thiết cho người mới bắt đầu.
+date: 2026-07-15
+category: Lập trình
+tags: [git, version-control, devtools]
+---
+
+Git là hệ thống quản lý phiên bản phổ biến nhất hiện nay. Bài viết này sẽ hướng dẫn các lệnh cơ bản.
+
+## Khởi tạo repository
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+## Clone repository
+
+```bash
+git clone https://github.com/user/repo.git
+```
+
+## Branch và Merge
+
+```bash
+git checkout -b feature/new-feature
+git add .
+git commit -m "Add new feature"
+git checkout main
+git merge feature/new-feature
+```

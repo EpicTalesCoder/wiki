@@ -1,0 +1,414 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#_top"
+  - generic [ref=e3]:
+    - navigation "Main" [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link "Starlight Obsidian Theme" [ref=e9] [cursor=pointer]:
+            - /url: /
+          - button "Search" [ref=e12] [cursor=pointer]:
+            - generic [ref=e16]:
+              - generic [ref=e17]: Ctrl
+              - generic [ref=e18]: K
+          - generic [ref=e19]:
+            - generic [ref=e20]:
+              - link "GitHub" [ref=e21] [cursor=pointer]:
+                - /url: https://github.com/fevol/starlight-theme-obsidian
+              - link "Discord" [ref=e25] [cursor=pointer]:
+                - /url: https://discord.com/users/264169866511122432
+            - button "Select theme" [ref=e30] [cursor=pointer]
+        - list [ref=e39]:
+          - listitem [ref=e40]:
+            - group [ref=e41]:
+              - generic "Start Here" [ref=e42] [cursor=pointer]
+              - list [ref=e46]:
+                - listitem [ref=e47]:
+                  - link "Getting Started" [ref=e48] [cursor=pointer]:
+                    - /url: /getting-started/
+                - listitem [ref=e49]:
+                  - link "Contributing" [ref=e50] [cursor=pointer]:
+                    - /url: /contributing/
+                - listitem [ref=e51]:
+                  - link "Attribution" [ref=e52] [cursor=pointer]:
+                    - /url: /attribution/
+                - listitem [ref=e53]:
+                  - link "Changelog" [ref=e54] [cursor=pointer]:
+                    - /url: /changelog/
+          - listitem [ref=e55]:
+            - group [ref=e56]:
+              - generic "Blog" [ref=e57] [cursor=pointer]
+              - list [ref=e61]:
+                - listitem [ref=e62]:
+                  - link "Docker cho Developer" [ref=e63] [cursor=pointer]:
+                    - /url: /blog/posts/docker-cho-developer/
+                - listitem [ref=e64]:
+                  - link "Giới thiệu về Starlight" [ref=e65] [cursor=pointer]:
+                    - /url: /blog/posts/gioi-thieu-starlight/
+                - listitem [ref=e66]:
+                  - link "Hướng dẫn sử dụng Git cơ bản" [ref=e67] [cursor=pointer]:
+                    - /url: /blog/posts/huong-dan-git-co-ban/
+                - listitem [ref=e68]:
+                  - link "Node.js Best Practices 2026" [ref=e69] [cursor=pointer]:
+                    - /url: /blog/posts/nodejs-best-practices/
+                - listitem [ref=e70]:
+                  - link "Tối ưu hiệu năng React" [ref=e71] [cursor=pointer]:
+                    - /url: /blog/posts/toi-uu-hieu-nang-react/
+          - listitem [ref=e72]:
+            - group [ref=e73]:
+              - generic "Resources" [ref=e74] [cursor=pointer]
+              - list [ref=e78]:
+                - listitem [ref=e79]:
+                  - link "Plugins and Templates" [ref=e80] [cursor=pointer]:
+                    - /url: /resources/
+          - listitem [ref=e81]:
+            - group [ref=e82]:
+              - generic "Configuration" [ref=e83] [cursor=pointer]
+              - list [ref=e87]:
+                - listitem [ref=e88]:
+                  - link "Overview" [ref=e89] [cursor=pointer]:
+                    - /url: /configuration/
+                - listitem [ref=e90]:
+                  - link "CSS" [ref=e91] [cursor=pointer]:
+                    - /url: /configuration/css/
+                - listitem [ref=e92]:
+                  - link "Graph" [ref=e93] [cursor=pointer]:
+                    - /url: /configuration/graph/
+                - listitem [ref=e94]:
+                  - link "Backlinks" [ref=e95] [cursor=pointer]:
+                    - /url: /configuration/backlinks/
+          - listitem [ref=e96]:
+            - group [ref=e97]:
+              - generic "Components" [ref=e98] [cursor=pointer]
+              - list [ref=e102]:
+                - listitem [ref=e103]:
+                  - link "Overview" [ref=e104] [cursor=pointer]:
+                    - /url: /components/
+                - listitem [ref=e105]:
+                  - link "<Sidebar>" [ref=e106] [cursor=pointer]:
+                    - /url: /components/sidebar/
+                - listitem [ref=e107]:
+                  - link "<PageSidebar>" [ref=e108] [cursor=pointer]:
+                    - /url: /components/pagesidebar/
+                - listitem [ref=e109]:
+                  - link "<PageFrame>" [ref=e110] [cursor=pointer]:
+                    - /url: /components/pageframe/
+                - listitem [ref=e111]:
+                  - link "<Pagination>" [ref=e112] [cursor=pointer]:
+                    - /url: /components/pagination/
+                - listitem [ref=e113]:
+                  - link "<ThemeSelect>" [ref=e114] [cursor=pointer]:
+                    - /url: /components/themeselect/
+          - listitem [ref=e115]:
+            - group [ref=e116]:
+              - generic "Examples" [ref=e117] [cursor=pointer]
+              - list [ref=e121]:
+                - listitem [ref=e122]:
+                  - link "Asides" [ref=e123] [cursor=pointer]:
+                    - /url: /examples/asides/
+                - listitem [ref=e124]:
+                  - link "Badges Badge" [ref=e125] [cursor=pointer]:
+                    - /url: /examples/badges/
+                    - text: Badges
+                    - generic [ref=e126]: Badge
+                - listitem [ref=e127]:
+                  - link "Banner" [ref=e128] [cursor=pointer]:
+                    - /url: /examples/banner/
+                - listitem [ref=e129]:
+                  - link "Banner - Splash" [ref=e130] [cursor=pointer]:
+                    - /url: /examples/banner-splash/
+                - listitem [ref=e131]:
+                  - link "Cards" [ref=e132] [cursor=pointer]:
+                    - /url: /examples/cards/
+                - listitem [ref=e133]:
+                  - link "Code Blocks" [ref=e134] [cursor=pointer]:
+                    - /url: /examples/code-blocks/
+                - listitem [ref=e135]:
+                  - link "Draft" [ref=e136] [cursor=pointer]:
+                    - /url: /examples/draft/
+                - listitem [ref=e137]:
+                  - link "File Tree" [ref=e138] [cursor=pointer]:
+                    - /url: /examples/file-tree/
+                - listitem [ref=e139]:
+                  - link "Hero" [ref=e140] [cursor=pointer]:
+                    - /url: /examples/hero/
+                - listitem [ref=e141]:
+                  - link "Link Buttons" [ref=e142] [cursor=pointer]:
+                    - /url: /examples/link-buttons/
+                - listitem [ref=e143]:
+                  - link "Markdown" [ref=e144] [cursor=pointer]:
+                    - /url: /examples/markdown/
+                - listitem [ref=e145]:
+                  - link "Steps" [ref=e146] [cursor=pointer]:
+                    - /url: /examples/steps/
+                - listitem [ref=e147]:
+                  - link "Tabs" [ref=e148] [cursor=pointer]:
+                    - /url: /examples/tabs/
+    - generic [ref=e150]:
+      - complementary [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - heading "Graph View" [level=2] [ref=e154]
+            - generic [ref=e157]:
+              - button [ref=e158] [cursor=pointer]
+              - button [ref=e164] [cursor=pointer]
+              - button [ref=e168] [cursor=pointer]
+              - button [ref=e175] [cursor=pointer]
+              - button [ref=e180] [cursor=pointer]
+          - navigation [ref=e188]:
+            - heading "On this page" [level=2] [ref=e189]
+            - list [ref=e190]:
+              - listitem [ref=e191]:
+                - link "Overview" [ref=e192] [cursor=pointer]:
+                  - /url: "#_top"
+      - main [ref=e194]:
+        - heading "Quản lý nội dung" [level=1] [ref=e197]
+        - generic [ref=e199]:
+          - generic [ref=e201]:
+            - heading "Quản lý nội dung" [level=1] [ref=e202]
+            - button "+ Tạo đề mục mới" [ref=e204]
+            - generic [ref=e205]:
+              - generic [ref=e206]:
+                - heading "Start Here" [level=2] [ref=e207]
+                - generic [ref=e208]:
+                  - button "+ Tạo trang" [ref=e209]
+                  - button "Xóa đề mục" [ref=e210]
+              - generic [ref=e211]:
+                - link [ref=e212] [cursor=pointer]:
+                  - /url: /attribution/
+                  - paragraph [ref=e213]: Attribution
+                  - paragraph [ref=e214]: A list of people and libraries that helped make this project possible.
+                - button "Xóa" [ref=e215]
+              - generic [ref=e216]:
+                - link [ref=e217] [cursor=pointer]:
+                  - /url: /changelog/
+                  - paragraph [ref=e218]: Changelog
+                  - paragraph [ref=e219]: Changelog for the Starlight Obsidian Theme.
+                - button "Xóa" [ref=e220]
+              - generic [ref=e221]:
+                - link [ref=e222] [cursor=pointer]:
+                  - /url: /contributing/
+                  - paragraph [ref=e223]: Contributing
+                  - paragraph [ref=e224]: Help improve the Starlight Obsidian theme by contributing to the project.
+                - button "Xóa" [ref=e225]
+              - generic [ref=e226]:
+                - link [ref=e227] [cursor=pointer]:
+                  - /url: /getting-started/
+                  - paragraph [ref=e228]: Getting Started
+                  - paragraph [ref=e229]: Learn how to use the Starlight Obsidian theme in your Starlight site.
+                - button "Xóa" [ref=e230]
+              - generic [ref=e231]:
+                - link [ref=e232] [cursor=pointer]:
+                  - /url: /index/
+                  - paragraph [ref=e233]: Starlight Obsidian
+                  - paragraph [ref=e234]: Starlight theme inspired by the style of Obsidian Publish websites.
+                - button "Xóa" [ref=e235]
+            - generic [ref=e236]:
+              - generic [ref=e237]:
+                - heading "Blog" [level=2] [ref=e238]
+                - generic [ref=e239]:
+                  - button "+ Tạo trang" [ref=e240]
+                  - button "Xóa đề mục" [ref=e241]
+              - generic [ref=e242]:
+                - link [ref=e243] [cursor=pointer]:
+                  - /url: /blog/posts/docker-cho-developer/
+                  - paragraph [ref=e244]: Docker cho Developer
+                  - paragraph [ref=e245]: Tìm hiểu cách sử dụng Docker để phát triển và deploy ứng dụng.
+                - button "Xóa" [ref=e246]
+              - generic [ref=e247]:
+                - link [ref=e248] [cursor=pointer]:
+                  - /url: /blog/posts/gioi-thieu-starlight/
+                  - paragraph [ref=e249]: Giới thiệu về Starlight
+                  - paragraph [ref=e250]: Tìm hiểu về framework Astro Starlight dùng để xây dựng trang documentation.
+                - button "Xóa" [ref=e251]
+              - generic [ref=e252]:
+                - link [ref=e253] [cursor=pointer]:
+                  - /url: /blog/posts/huong-dan-git-co-ban/
+                  - paragraph [ref=e254]: Hướng dẫn sử dụng Git cơ bản
+                  - paragraph [ref=e255]: Hướng dẫn các lệnh Git cần thiết cho người mới bắt đầu.
+                - button "Xóa" [ref=e256]
+              - generic [ref=e257]:
+                - link [ref=e258] [cursor=pointer]:
+                  - /url: /blog/posts/nodejs-best-practices/
+                  - paragraph [ref=e259]: Node.js Best Practices 2026
+                  - paragraph [ref=e260]: Tổng hợp các best practices khi phát triển với Node.js.
+                - button "Xóa" [ref=e261]
+              - generic [ref=e262]:
+                - link [ref=e263] [cursor=pointer]:
+                  - /url: /blog/posts/toi-uu-hieu-nang-react/
+                  - paragraph [ref=e264]: Tối ưu hiệu năng React
+                  - paragraph [ref=e265]: Các kỹ thuật tối ưu hiệu năng cho ứng dụng React.
+                - button "Xóa" [ref=e266]
+            - generic [ref=e267]:
+              - generic [ref=e268]:
+                - heading "Resources" [level=2] [ref=e269]
+                - generic [ref=e270]:
+                  - button "+ Tạo trang" [ref=e271]
+                  - button "Xóa đề mục" [ref=e272]
+              - generic [ref=e273]:
+                - link [ref=e274] [cursor=pointer]:
+                  - /url: /resources/index/
+                  - paragraph [ref=e275]: Plugins and Templates
+                  - paragraph [ref=e276]: Learn what other packages integrate well with this theme.
+                - button "Xóa" [ref=e277]
+            - generic [ref=e278]:
+              - generic [ref=e279]:
+                - heading "Configuration" [level=2] [ref=e280]
+                - generic [ref=e281]:
+                  - button "+ Tạo trang" [ref=e282]
+                  - button "Xóa đề mục" [ref=e283]
+              - generic [ref=e284]:
+                - link [ref=e285] [cursor=pointer]:
+                  - /url: /configuration/backlinks/
+                  - paragraph [ref=e286]: Backlinks
+                  - paragraph [ref=e287]: Learn how to configure the backlinks component.
+                - button "Xóa" [ref=e288]
+              - generic [ref=e289]:
+                - link [ref=e290] [cursor=pointer]:
+                  - /url: /configuration/css/
+                  - paragraph [ref=e291]: CSS
+                  - paragraph [ref=e292]: Learn how to configure the Starlight Obsidian theme in your Starlight site.
+                - button "Xóa" [ref=e293]
+              - generic [ref=e294]:
+                - link [ref=e295] [cursor=pointer]:
+                  - /url: /configuration/graph/
+                  - paragraph [ref=e296]: Graph
+                  - paragraph [ref=e297]: Learn how to configure the graph component.
+                - button "Xóa" [ref=e298]
+              - generic [ref=e299]:
+                - link [ref=e300] [cursor=pointer]:
+                  - /url: /configuration/index/
+                  - paragraph [ref=e301]: Overview
+                  - paragraph [ref=e302]: Learn how to configure the plugin.
+                - button "Xóa" [ref=e303]
+            - generic [ref=e304]:
+              - generic [ref=e305]:
+                - heading "Components" [level=2] [ref=e306]
+                - generic [ref=e307]:
+                  - button "+ Tạo trang" [ref=e308]
+                  - button "Xóa đề mục" [ref=e309]
+              - generic [ref=e310]:
+                - link [ref=e311] [cursor=pointer]:
+                  - /url: /components/index/
+                  - paragraph [ref=e312]: Overview
+                  - paragraph [ref=e313]: Learn what overrides are used in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e314]
+              - generic [ref=e315]:
+                - link [ref=e316] [cursor=pointer]:
+                  - /url: /components/pageframe/
+                  - paragraph
+                  - paragraph [ref=e317]: Learn what the override does, and how to adapt it.
+                - button "Xóa" [ref=e318]
+              - generic [ref=e319]:
+                - link [ref=e320] [cursor=pointer]:
+                  - /url: /components/pagesidebar/
+                  - paragraph
+                  - paragraph [ref=e321]: Learn what the override does, and how to adapt it.
+                - button "Xóa" [ref=e322]
+              - generic [ref=e323]:
+                - link [ref=e324] [cursor=pointer]:
+                  - /url: /components/pagination/
+                  - paragraph
+                  - paragraph [ref=e325]: Learn what the override does, and how to adapt it.
+                - button "Xóa" [ref=e326]
+              - generic [ref=e327]:
+                - link [ref=e328] [cursor=pointer]:
+                  - /url: /components/sidebar/
+                  - paragraph
+                  - paragraph [ref=e329]: Learn what the override does.
+                - button "Xóa" [ref=e330]
+              - generic [ref=e331]:
+                - link [ref=e332] [cursor=pointer]:
+                  - /url: /components/themeselect/
+                  - paragraph
+                  - paragraph [ref=e333]: Learn what the override does.
+                - button "Xóa" [ref=e334]
+            - generic [ref=e335]:
+              - generic [ref=e336]:
+                - heading "Examples" [level=2] [ref=e337]
+                - generic [ref=e338]:
+                  - button "+ Tạo trang" [ref=e339]
+                  - button "Xóa đề mục" [ref=e340]
+              - generic [ref=e341]:
+                - link [ref=e342] [cursor=pointer]:
+                  - /url: /examples/asides/
+                  - paragraph [ref=e343]: Asides
+                  - paragraph [ref=e344]: See how the asides are styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e345]
+              - generic [ref=e346]:
+                - link [ref=e347] [cursor=pointer]:
+                  - /url: /examples/badges/
+                  - paragraph [ref=e348]: Badges
+                  - paragraph [ref=e349]: See how the badges are styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e350]
+              - generic [ref=e351]:
+                - link [ref=e352] [cursor=pointer]:
+                  - /url: /examples/banner-splash/
+                  - paragraph [ref=e353]: Banner - Splash
+                  - paragraph [ref=e354]: See how the banner is styled in a splash page within the Starlight Obsidian theme.
+                - button "Xóa" [ref=e355]
+              - generic [ref=e356]:
+                - link [ref=e357] [cursor=pointer]:
+                  - /url: /examples/banner/
+                  - paragraph [ref=e358]: Banner
+                  - paragraph [ref=e359]: See how the banner is styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e360]
+              - generic [ref=e361]:
+                - link [ref=e362] [cursor=pointer]:
+                  - /url: /examples/cards/
+                  - paragraph [ref=e363]: Cards
+                  - paragraph [ref=e364]: See how the cards are styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e365]
+              - generic [ref=e366]:
+                - link [ref=e367] [cursor=pointer]:
+                  - /url: /examples/code-blocks/
+                  - paragraph [ref=e368]: Code Blocks
+                  - paragraph [ref=e369]: See how the code blocks are styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e370]
+              - generic [ref=e371]:
+                - link [ref=e372] [cursor=pointer]:
+                  - /url: /examples/draft/
+                  - paragraph [ref=e373]: Draft
+                  - paragraph [ref=e374]: See how a page marked as draft is styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e375]
+              - generic [ref=e376]:
+                - link [ref=e377] [cursor=pointer]:
+                  - /url: /examples/file-tree/
+                  - paragraph [ref=e378]: File Tree
+                  - paragraph [ref=e379]: See how the file tree is styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e380]
+              - generic [ref=e381]:
+                - link [ref=e382] [cursor=pointer]:
+                  - /url: /examples/hero/
+                  - paragraph [ref=e383]: Hero
+                  - paragraph [ref=e384]: See how the hero is styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e385]
+              - generic [ref=e386]:
+                - link [ref=e387] [cursor=pointer]:
+                  - /url: /examples/link-buttons/
+                  - paragraph [ref=e388]: Link Buttons
+                  - paragraph [ref=e389]: See how the link buttons are styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e390]
+              - generic [ref=e391]:
+                - link [ref=e392] [cursor=pointer]:
+                  - /url: /examples/markdown/
+                  - paragraph [ref=e393]: Markdown
+                  - paragraph [ref=e394]: See how the markdown content is styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e395]
+              - generic [ref=e396]:
+                - link [ref=e397] [cursor=pointer]:
+                  - /url: /examples/steps/
+                  - paragraph [ref=e398]: Steps
+                  - paragraph [ref=e399]: See how the steps component is styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e400]
+              - generic [ref=e401]:
+                - link [ref=e402] [cursor=pointer]:
+                  - /url: /examples/tabs/
+                  - paragraph [ref=e403]: Tabs
+                  - paragraph [ref=e404]: See how the tabs are styled in the Starlight Obsidian theme.
+                - button "Xóa" [ref=e405]
+          - generic [ref=e406]:
+            - link "Edit page" [ref=e408] [cursor=pointer]:
+              - /url: https://github.com/fevol/starlight-theme-obsidian/edit/main/docs/src/content/docs/admin/index.mdx
+            - link "Built with Starlight" [ref=e411] [cursor=pointer]:
+              - /url: https://starlight.astro.build

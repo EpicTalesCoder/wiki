@@ -1,0 +1,76 @@
+[
+    {
+        "label": "Start Here",
+        "type": "manual",
+        "items": [
+            {
+                "label": "Getting Started",
+                "link": "/getting-started/"
+            },
+            {
+                "label": "Contributing",
+                "link": "/contributing/"
+            },
+            {
+                "label": "Attribution",
+                "link": "/attribution/"
+            },
+            {
+                "label": "Changelog",
+                "link": "/changelog/"
+            },
+            {
+                "label": "biu",
+                "link": "/biu/"
+            }
+        ]
+    },
+    {
+        "label": "Blog",
+        "type": "autogenerate",
+        "directory": "blog/posts"
+    },
+    {
+        "label": "Resources",
+        "type": "autogenerate",
+        "directory": "resources"
+    },
+    {
+        "label": "Configuration",
+        "type": "autogenerate",
+        "directory": "configuration"
+    },
+    {
+        "label": "Components",
+        "type": "autogenerate",
+        "directory": "components"
+    },
+    {
+        "label": "Examples",
+        "type": "autogenerate",
+        "directory": "examples"
+    },
+    {
+        "label": "hehehe",
+        "type": "manual",
+        "directory": "ddddd",
+        "items": [
+            {
+                "label": "fair",
+                "link": "/ddddd/fair/"
+            },
+            {
+                "label": "boi boi",
+                "link": "/ddddd/boi-boi/"
+            },
+            {
+                "label": "navis",
+                "link": "/ddddd/navis/"
+            },
+            {
+                "label": "hoi",
+                "link": "/ddddd/hoi/"
+            }
+        ]
+    }
+]

@@ -1,0 +1,440 @@
+<div id="docs-admin">
+    <div id="docs-restart-banner" class="docs-restart-banner" style="display:none">Đang khởi động lại server để cập nhật nội dung &amp; sidebar — vui lòng chờ vài giây rồi tải lại trang.</div>
+    <div class="docs-loading">Đang tải...</div>
+</div>
+
+<style>
+    .docs-page-title {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: var(--sl-color-text);
+    }
+
+    .docs-section {
+        margin-bottom: 2rem;
+    }
+
+    .docs-section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--sl-color-hairline);
+    }
+
+    .docs-section-header h2 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin: 0;
+        color: var(--sl-color-text);
+    }
+
+    .docs-section-actions {
+        display: flex;
+        gap: 0.375rem;
+    }
+
+    .docs-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.375rem 0.75rem;
+        border: 1px solid var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-sm);
+        background: transparent;
+        color: var(--sl-color-accent-high);
+        font-size: 0.8125rem;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .docs-btn:hover {
+        background-color: var(--sl-color-accent);
+        color: var(--sl-color-black);
+        border-color: transparent;
+    }
+    .docs-btn-danger:hover {
+        background: hsl(0, 70%, 50%);
+        color: #fff;
+        border-color: hsl(0, 70%, 50%);
+    }
+    .docs-btn-danger {
+        color: hsl(0, 70%, 60%);
+    }
+
+    .docs-page-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.875rem 1rem;
+        background-color: var(--sl-color-black);
+        box-shadow: 0 0 0 1px var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-md);
+        margin-bottom: 0.5rem;
+        transition: box-shadow 0.2s;
+    }
+    .docs-page-card:hover {
+        box-shadow: 0 0 0 1px var(--sl-color-accent);
+    }
+
+    .docs-page-card .page-link {
+        text-decoration: none;
+        flex: 1;
+        min-width: 0;
+    }
+    .docs-page-card .page-title {
+        font-size: 0.9375rem;
+        font-weight: 500;
+        margin: 0;
+        color: var(--sl-color-text);
+        transition: color 0.2s;
+    }
+    .docs-page-card:hover .page-title {
+        color: var(--sl-color-accent-high);
+    }
+    .docs-page-card .page-desc {
+        font-size: 0.8125rem;
+        color: var(--sl-color-gray-3);
+        margin: 0.25rem 0 0;
+        line-height: 1.4;
+    }
+
+    .docs-delete-btn {
+        flex-shrink: 0;
+        margin-left: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-sm);
+        background: transparent;
+        color: var(--sl-color-gray-3);
+        font-size: 0.75rem;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .docs-delete-btn:hover {
+        background: hsl(0, 70%, 50%);
+        color: #fff;
+        border-color: hsl(0, 70%, 50%);
+    }
+
+    .docs-empty {
+        font-size: 0.875rem;
+        color: var(--sl-color-gray-4);
+        padding: 0.75rem 0;
+        font-style: italic;
+    }
+
+    .docs-modal-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        backdrop-filter: blur(4px);
+    }
+    .docs-modal {
+        background: var(--sl-color-bg);
+        box-shadow: 0 0 0 1px var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-lg);
+        padding: 1.5rem;
+        width: 90%;
+        max-width: 32rem;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    .docs-modal h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin: 0 0 1.25rem;
+        color: var(--sl-color-text);
+    }
+    .docs-modal-sub {
+        font-size: 0.8125rem;
+        color: var(--sl-color-gray-3);
+        margin: -1rem 0 1.25rem;
+    }
+    .docs-form-group {
+        margin-bottom: 1rem;
+    }
+    .docs-form-group label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--sl-color-gray-3);
+        margin-bottom: 0.375rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .docs-form-group input,
+    .docs-form-group textarea,
+    .docs-form-group select {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        box-shadow: 0 0 0 1px var(--sl-color-hairline);
+        border: 1px solid transparent;
+        border-radius: var(--sl-border-radius-sm);
+        background: var(--sl-color-black);
+        color: var(--sl-color-text);
+        font-family: inherit;
+        font-size: 0.875rem;
+        box-sizing: border-box;
+        transition: border-color 0.2s;
+    }
+    .docs-form-group input:focus,
+    .docs-form-group textarea:focus,
+    .docs-form-group select:focus {
+        outline: none;
+        border-color: var(--sl-color-accent);
+    }
+    .docs-form-group textarea {
+        min-height: 10rem;
+        resize: vertical;
+    }
+    .docs-modal-actions {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+    }
+    .docs-btn-cancel {
+        padding: 0.4375rem 1rem;
+        border: 1px solid var(--sl-color-hairline);
+        border-radius: var(--sl-border-radius-sm);
+        background: transparent;
+        color: var(--sl-color-gray-2);
+        font-size: 0.8125rem;
+        font-family: inherit;
+        cursor: pointer;
+    }
+    .docs-btn-submit {
+        padding: 0.4375rem 1rem;
+        border-radius: var(--sl-border-radius-sm);
+        background: var(--sl-color-accent);
+        color: var(--sl-color-black);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .docs-btn-submit:hover {
+        background: var(--sl-color-accent-high);
+    }
+    .docs-loading {
+        text-align: center;
+        color: var(--sl-color-gray-4);
+        padding: 2rem;
+    }
+    .docs-new-section-bar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    .docs-restart-banner {
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: var(--sl-border-radius-sm);
+        background: var(--sl-color-accent);
+        color: var(--sl-color-black);
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+</style>
+
+<script>
+    const API = '';
+    let sectionsData: Array<{ key: string; label: string; type: string; directory: string; pages: Array<{ slug: string; title: string; description: string }> }> = [];
+
+    const container = document.getElementById('docs-admin')!;
+
+    function slugify(text: string) {
+        return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    async function loadData() {
+        try {
+            const res = await fetch(API + '/api/docs');
+            const data = await res.json();
+            sectionsData = data.sections;
+            render();
+        } catch {
+            container.innerHTML = '<p class="docs-empty">Không thể tải dữ liệu. Đảm bảo API server đang chạy.</p>';
+        }
+    }
+
+    async function reloadServer() {
+        try {
+            await fetch(API + '/api/reload', { method: 'POST' });
+        } catch { /* server restarting — ignore */ }
+        const banner = document.getElementById('docs-restart-banner');
+        if (banner) banner.style.display = '';
+    }
+
+    function render() {
+        let html = '<h1 class="docs-page-title">Quản lý nội dung</h1>';
+        html += '<div class="docs-new-section-bar"><button class="docs-btn" onclick="openSectionModal()">+ Tạo đề mục mới</button></div>';
+        for (const sec of sectionsData) {
+            html += '<div class="docs-section">';
+            html += '<div class="docs-section-header"><h2>' + sec.label + '</h2>';
+            html += '<div class="docs-section-actions">';
+            html += '<button class="docs-btn" onclick="openPageModal(\'' + sec.key + '\', \'' + sec.label + '\')">+ Tạo trang</button>';
+            html += '<button class="docs-btn docs-btn-danger" onclick="deleteSection(\'' + sec.label + '\')">Xóa đề mục</button>';
+            html += '</div></div>';
+            for (const page of sec.pages) {
+                const link = sec.directory
+                    ? '/' + sec.directory + '/' + page.slug + '/'
+                    : '/' + page.slug + '/';
+                html += '<div class="docs-page-card">';
+                html += '<a href="' + link + '" class="page-link">';
+                html += '<p class="page-title">' + page.title + '</p>';
+                if (page.description) html += '<p class="page-desc">' + page.description + '</p>';
+                html += '</a>';
+                html += '<button class="docs-delete-btn" onclick="event.preventDefault(); event.stopPropagation(); deletePage(\'' + sec.key + '\', \'' + page.slug + '\')">Xóa</button>';
+                html += '</div>';
+            }
+            if (sec.pages.length === 0) {
+                html += '<p class="docs-empty">Chưa có trang nào.</p>';
+            }
+            html += '</div>';
+        }
+        container.innerHTML = html;
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('docs-modal');
+        if (modal) modal.remove();
+    }
+
+    function openSectionModal() {
+        const overlay = document.createElement('div');
+        overlay.className = 'docs-modal-overlay';
+        overlay.id = 'docs-modal';
+        overlay.innerHTML =
+            '<div class="docs-modal">' +
+            '<h3>Tạo đề mục mới</h3>' +
+            '<div class="docs-form-group"><label>Tên đề mục</label><input type="text" id="sec-label" placeholder="Nhập tên đề mục..." /></div>' +
+            '<div class="docs-form-group"><label>Loại</label><select id="sec-type"><option value="autogenerate">Tự động (autogenerate)</option><option value="manual">Thủ công (manual)</option></select></div>' +
+            '<div class="docs-form-group"><label>Thư mục (directory)</label><input type="text" id="sec-dir" placeholder="Tên thư mục, ví dụ: tutorials" /></div>' +
+            '<div class="docs-modal-actions">' +
+            '<button class="docs-btn-cancel" onclick="closeModal()">Hủy</button>' +
+            '<button class="docs-btn-submit" onclick="createSection()">Tạo</button>' +
+            '</div></div>';
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+        document.body.appendChild(overlay);
+        (document.getElementById('sec-label') as HTMLInputElement).focus();
+    }
+
+    async function createSection() {
+        const label = (document.getElementById('sec-label') as HTMLInputElement).value.trim();
+        const type = (document.getElementById('sec-type') as HTMLSelectElement).value;
+        let directory = (document.getElementById('sec-dir') as HTMLInputElement).value.trim();
+        if (!label) {
+            (document.getElementById('sec-label') as HTMLInputElement).style.borderColor = 'hsl(0, 70%, 50%)';
+            return;
+        }
+        if (!directory) directory = slugify(label);
+        try {
+            const res = await fetch(API + '/api/sections', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'create', label, type, directory }),
+            });
+            const data = await res.json();
+            if (data.success) {
+                closeModal();
+                await loadData();
+                reloadServer();
+            } else {
+                alert(data.error || 'Có lỗi xảy ra');
+            }
+        } catch { alert('Không thể tạo đề mục.'); }
+    }
+
+    async function deleteSection(label: string) {
+        if (!confirm('Xóa đề mục "' + label + '"? Các trang con bên trong sẽ không bị xóa khỏi hệ thống file, chỉ xóa khỏi sidebar.')) return;
+        try {
+            const res = await fetch(API + '/api/sections', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'delete', label }),
+            });
+            const data = await res.json();
+            if (data.success) { await loadData(); reloadServer(); }
+            else { alert(data.error || 'Có lỗi xảy ra'); }
+        } catch { alert('Không thể xóa đề mục.'); }
+    }
+
+    function openPageModal(sectionKey: string, sectionLabel: string) {
+        const overlay = document.createElement('div');
+        overlay.className = 'docs-modal-overlay';
+        overlay.id = 'docs-modal';
+        overlay.innerHTML =
+            '<div class="docs-modal">' +
+            '<h3>Tạo trang mới</h3>' +
+            '<p class="docs-modal-sub">Đề mục: ' + sectionLabel + '</p>' +
+            '<div class="docs-form-group"><label>Tiêu đề</label><input type="text" id="doc-title" placeholder="Nhập tiêu đề trang..." /></div>' +
+            '<div class="docs-form-group"><label>Mô tả</label><input type="text" id="doc-desc" placeholder="Nhập mô tả..." /></div>' +
+            '<div class="docs-form-group"><label>Nội dung (Markdown)</label><textarea id="doc-content" placeholder="Nhập nội dung..."></textarea></div>' +
+            '<div class="docs-modal-actions">' +
+            '<button class="docs-btn-cancel" onclick="closeModal()">Hủy</button>' +
+            '<button class="docs-btn-submit" onclick="createPage(\'' + sectionKey + '\')">Tạo</button>' +
+            '</div></div>';
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+        document.body.appendChild(overlay);
+        (document.getElementById('doc-title') as HTMLInputElement).focus();
+    }
+
+    async function createPage(sectionKey: string) {
+        const title = (document.getElementById('doc-title') as HTMLInputElement).value.trim();
+        const description = (document.getElementById('doc-desc') as HTMLInputElement).value.trim();
+        const content = (document.getElementById('doc-content') as HTMLTextAreaElement).value.trim();
+        if (!title) {
+            (document.getElementById('doc-title') as HTMLInputElement).style.borderColor = 'hsl(0, 70%, 50%)';
+            return;
+        }
+        try {
+            const res = await fetch(API + '/api/docs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'create', section: sectionKey, title, description, content }),
+            });
+            const data = await res.json();
+            if (data.success) {
+                closeModal();
+                await loadData();
+                reloadServer();
+            } else {
+                alert(data.error || 'Có lỗi xảy ra');
+            }
+        } catch { alert('Không thể tạo trang.'); }
+    }
+
+    async function deletePage(sectionKey: string, slug: string) {
+        if (!confirm('Bạn có chắc muốn xóa trang này?')) return;
+        try {
+            const res = await fetch(API + '/api/docs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'delete', section: sectionKey, slug }),
+            });
+            const data = await res.json();
+            if (data.success) { await loadData(); reloadServer(); }
+            else { alert(data.error || 'Có lỗi xảy ra'); }
+        } catch { alert('Không thể xóa trang.'); }
+    }
+
+    (window as any).openSectionModal = openSectionModal;
+    (window as any).closeModal = closeModal;
+    (window as any).createSection = createSection;
+    (window as any).deleteSection = deleteSection;
+    (window as any).openPageModal = openPageModal;
+    (window as any).createPage = createPage;
+    (window as any).deletePage = deletePage;
+
+    loadData();
+</script>

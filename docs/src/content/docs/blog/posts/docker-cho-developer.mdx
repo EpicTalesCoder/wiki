@@ -1,0 +1,40 @@
+---
+title: Docker cho Developer
+description: Tìm hiểu cách sử dụng Docker để phát triển và deploy ứng dụng.
+date: 2026-07-22
+category: DevOps
+tags: [docker, devops, container]
+---
+
+Docker là công cụ container hóa giúp đồng nhất môi trường phát triển và sản xuất.
+
+## Cài đặt Docker
+
+Truy cập [docker.com](https://www.docker.com/) để tải và cài đặt Docker Desktop.
+
+## Dockerfile cơ bản
+
+```dockerfile
+FROM node:24-alpine
+WORKDIR /app
+COPY package.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+## Docker Compose
+
+```yaml
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: secret
+```

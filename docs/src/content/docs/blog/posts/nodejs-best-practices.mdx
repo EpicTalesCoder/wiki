@@ -1,0 +1,41 @@
+---
+title: Node.js Best Practices 2026
+description: Tổng hợp các best practices khi phát triển với Node.js.
+date: 2026-07-18
+category: Lập trình
+tags: [nodejs, javascript, backend]
+---
+
+Node.js tiếp tục là lựa chọn hàng đầu cho backend development. Dưới đây là các best practices nên tuân theo.
+
+## Sử dụng async/await
+
+```js
+async function getUsers() {
+  try {
+    const response = await fetch('/api/users');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch users:', error);
+  }
+}
+```
+
+## Environment Variables
+
+```js
+const config = {
+  port: process.env.PORT || 3000,
+  dbUrl: process.env.DATABASE_URL,
+};
+```
+
+## Error Handling
+
+```js
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
+```

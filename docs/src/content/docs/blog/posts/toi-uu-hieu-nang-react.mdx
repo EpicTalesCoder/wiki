@@ -1,0 +1,32 @@
+---
+title: Tối ưu hiệu năng React
+description: Các kỹ thuật tối ưu hiệu năng cho ứng dụng React.
+date: 2026-07-20
+category: Lập trình
+tags: [react, performance, javascript]
+---
+
+Hiệu năng là yếu tố quan trọng trong trải nghiệm người dùng. Dưới đây là các kỹ thuật tối ưu cho React.
+
+## React.memo
+
+Sử dụng `React.memo` để tránh re-render không cần thiết:
+
+```jsx
+const Component = React.memo(({ value }) => {
+  return <div>{value}</div>;
+});
+```
+
+## useMemo và useCallback
+
+```jsx
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+const memoizedCallback = useCallback(() => doSomething(a, b), [a, b]);
+```
+
+## Lazy Loading
+
+```jsx
+const LazyComponent = React.lazy(() => import('./MyComponent'));
+```

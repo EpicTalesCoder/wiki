@@ -3,12 +3,31 @@ import starlight from '@astrojs/starlight';
 import starlightSiteGraph from 'starlight-site-graph';
 import starlightThemeObsidian from 'starlight-theme-obsidian';
 import starlightLinksValidator from 'starlight-links-validator';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
 const isHeroku = Boolean(process.env.HEROKU_APP_NAME || process.env.HEROKU_APP_ID);
 const site = isHeroku
     ? `https://${process.env.HEROKU_APP_NAME || 'starlight-theme-obsidian'}.herokuapp.com`
     : 'http://localhost:4321';
-const base = '/';
+const base = isHeroku ? '/' : '/';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const sidebarConfig = JSON.parse(readFileSync(path.join(__dirname, 'sidebar-config.json'), 'utf-8'));
+
+const sidebar = sidebarConfig.map(sec => {
+    if (sec.type === 'autogenerate') {
+        return {
+            label: sec.label,
+            autogenerate: { directory: sec.directory },
+        };
+    }
+    return {
+        label: sec.label,
+        items: sec.items,
+    };
+});
 
 export default defineConfig({
     site,
@@ -35,33 +54,7 @@ export default defineConfig({
                 starlightThemeObsidian({ overrideWarnings: true }),
             ],
             favicon: './favicon.svg',
-            sidebar: [
-                {
-                    label: 'Start Here',
-                    items: [
-                        { label: 'Getting Started', link: '/getting-started/' },
-                        { label: 'Contributing', link: '/contributing/' },
-                        { label: 'Attribution', link: '/attribution/' },
-                        { label: 'Changelog', link: '/changelog/' },
-                    ],
-                },
-                {
-                    label: 'Resources',
-                    autogenerate: { directory: 'resources' },
-                },
-                {
-                    label: 'Configuration',
-                    autogenerate: { directory: 'configuration' },
-                },
-                {
-                    label: 'Components',
-                    autogenerate: { directory: 'components' },
-                },
-                {
-                    label: 'Examples',
-                    autogenerate: { directory: 'examples' },
-                },
-            ],
+            sidebar,
             components: {
                 Head: './src/overrides/Head.astro',
             },
@@ -69,3 +62,4 @@ export default defineConfig({
     ],
     devToolbar: { enabled: false },
 });
+// reload-stamp: 1784984738785
