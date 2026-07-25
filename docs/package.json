@@ -9,12 +9,14 @@
 		"start": "astro dev",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"mcp": "bun run src/mcp/run-http.ts"
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.8",
 		"@astrojs/node": "^11.0.2",
 		"@astrojs/starlight": "0.38.3",
+		"@modelcontextprotocol/sdk": "1.29.0",
 		"astro": "6.1.8",
 		"marked": "^18.0.7",
 		"shiki": "^1.0.0",
@@ -25,6 +27,7 @@
 		"starlight-package-managers": "^0.7.0",
 		"starlight-site-graph": "^0.5.0",
 		"starlight-theme-obsidian": "file:../packages/starlight-theme-obsidian",
-		"typescript": "^5.9.3"
+		"typescript": "^5.9.3",
+		"zod": "^4.4.3"
 	}
 }
