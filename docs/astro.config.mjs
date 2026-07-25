@@ -57,6 +57,7 @@ export default defineConfig({
             sidebar,
             components: {
                 Head: './src/overrides/Head.astro',
+                EditLink: './src/overrides/EditLink.astro',
             },
         }),
     ],
