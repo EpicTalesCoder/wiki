@@ -54,9 +54,90 @@ const label = Astro.locals.t('page.editLink');
 		border-radius: var(--sl-border-radius-lg);
 		padding: 1.5rem;
 		width: 90%;
-		max-width: 48rem;
-		max-height: 85vh;
+		max-width: 72rem;
+		max-height: 88vh;
+		display: flex;
+		flex-direction: column;
 		overflow-y: auto;
+	}
+	.sl-edit-split {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+		flex: 1 1 auto;
+		min-height: 0;
+		overflow: hidden;
+	}
+	.sl-edit-form {
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+		overflow-y: auto;
+		padding-right: 0.25rem;
+	}
+	.sl-edit-form .sl-edit-body-group {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+	}
+	.sl-edit-form .sl-edit-body-group textarea {
+		flex: 1 1 auto;
+		min-height: 16rem;
+	}
+	.sl-edit-preview {
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+		min-width: 0;
+		border: 1px solid var(--sl-color-hairline);
+		border-radius: var(--sl-border-radius-md);
+		background: var(--sl-color-black);
+		overflow: hidden;
+	}
+	.sl-edit-preview-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--sl-color-gray-3);
+		padding: 0.5rem 0.75rem;
+		border-bottom: 1px solid var(--sl-color-hairline);
+	}
+	.sl-edit-preview-body {
+		flex: 1 1 auto;
+		overflow-y: auto;
+		padding: 1rem 1.25rem;
+		color: var(--sl-color-text);
+		font-size: var(--sl-text-body, 1rem);
+		line-height: 1.65;
+	}
+	/* The `sl-markdown-content` class reuses Starlight's real Markdown CSS
+	   (headings, links, inline code, lists, tables, asides, etc.). We only add
+	   Shiki dual-theme token colors here — Starlight sets `data-theme` on <html>. */
+	.sl-edit-preview-body :where(.shiki) {
+		background-color: var(--shiki-dark-bg, transparent);
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: var(--sl-border-radius-md);
+	}
+	.sl-edit-preview-body :where(.shiki) span {
+		color: var(--shiki-dark);
+	}
+	html[data-theme='light'] .sl-edit-preview-body :where(.shiki) {
+		background-color: var(--shiki-light-bg, transparent);
+	}
+	html[data-theme='light'] .sl-edit-preview-body :where(.shiki) span {
+		color: var(--shiki-light);
+	}
+	.sl-edit-preview-body .starlight-aside__icon {
+		flex-shrink: 0;
+	}
+	@media (max-width: 50rem) {
+		.sl-edit-split {
+			grid-template-columns: 1fr;
+		}
+		.sl-edit-preview {
+			min-height: 14rem;
+		}
 	}
 	.sl-edit-modal h3 {
 		font-size: 1.125rem;
@@ -148,6 +229,7 @@ const label = Astro.locals.t('page.editLink');
 
 		const EDIT_API = '/api/page';
 		const RELOAD_API = '/api/reload';
+		const PREVIEW_API = '/api/preview';
 		let editingPath = '';
 
 		function escapeHtml(s: unknown): string {
@@ -159,6 +241,44 @@ const label = Astro.locals.t('page.editLink');
 				.replace(/'/g, '&#39;');
 		}
 
+		let previewTimer: ReturnType<typeof setTimeout> | undefined;
+		let previewReqId = 0;
+
+		// Render the preview server-side (Shiki + callouts) so it matches the
+		// live page. A request token guards against out-of-order responses.
+		async function renderPreview(): Promise<void> {
+			const titleEl = document.getElementById('sl-edit-title') as HTMLInputElement | null;
+			const bodyEl = document.getElementById('sl-edit-body') as HTMLTextAreaElement | null;
+			const preview = document.getElementById('sl-edit-preview');
+			if (!preview) return;
+			const myId = ++previewReqId;
+			const title = titleEl?.value ?? '';
+			const body = bodyEl?.value ?? '';
+			preview.textContent = 'Đang tải xem trước…';
+			try {
+				const res = await fetch(PREVIEW_API, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ title, content: body }),
+				});
+				const data = await res.json();
+				if (myId !== previewReqId) return;
+				if (data.html) {
+					preview.innerHTML = data.html;
+				} else {
+					preview.textContent = data.error || 'Không thể xem trước.';
+				}
+			} catch {
+				if (myId !== previewReqId) return;
+				preview.textContent = 'Không thể tải xem trước. Đảm bảo dev server đang chạy.';
+			}
+		}
+
+		function schedulePreview(): void {
+			if (previewTimer) clearTimeout(previewTimer);
+			previewTimer = setTimeout(renderPreview, 350);
+		}
+
 		function openEditor(relPath: string, fallbackTitle: string) {
 			if (document.getElementById('sl-edit-modal')) return;
 			editingPath = relPath;
@@ -168,12 +288,20 @@ const label = Astro.locals.t('page.editLink');
 			overlay.innerHTML =
 				'<div class="sl-edit-modal">' +
 				'<h3>Chỉnh sửa trang</h3>' +
+				'<div class="sl-edit-split">' +
+				'<div class="sl-edit-form">' +
 				'<div class="sl-edit-group"><label>Tiêu đề</label>' +
 				'<input type="text" id="sl-edit-title" value="' + escapeHtml(fallbackTitle) + '" /></div>' +
 				'<div class="sl-edit-group"><label>Mô tả</label>' +
 				'<input type="text" id="sl-edit-desc" /></div>' +
-				'<div class="sl-edit-group"><label>Nội dung (Markdown)</label>' +
+				'<div class="sl-edit-group sl-edit-body-group"><label>Nội dung (Markdown)</label>' +
 				'<textarea id="sl-edit-body"></textarea></div>' +
+				'</div>' +
+				'<div class="sl-edit-preview">' +
+				'<div class="sl-edit-preview-label">Xem trước</div>' +
+				'<div class="sl-edit-preview-body sl-markdown-content" id="sl-edit-preview">Đang tải xem trước…</div>' +
+				'</div>' +
+				'</div>' +
 				'<div class="sl-edit-status"></div>' +
 				'<div class="sl-edit-actions">' +
 				'<button type="button" class="sl-edit-cancel">Hủy</button>' +
@@ -190,6 +318,9 @@ const label = Astro.locals.t('page.editLink');
 			const statusEl = overlay.querySelector('.sl-edit-status') as HTMLElement;
 			overlay.querySelector('.sl-edit-cancel')!.addEventListener('click', closeModal);
 			overlay.querySelector('.sl-edit-save')!.addEventListener('click', () => save(statusEl));
+			titleEl.addEventListener('input', schedulePreview);
+			bodyEl.addEventListener('input', schedulePreview);
+			renderPreview();
 
 			fetch(EDIT_API + '?path=' + encodeURIComponent(relPath))
 				.then((r) => r.json())
@@ -201,6 +332,7 @@ const label = Astro.locals.t('page.editLink');
 					if (!titleEl.value) titleEl.value = data.title || '';
 					descEl.value = data.description || '';
 					bodyEl.value = data.body || '';
+					renderPreview();
 				})
 				.catch(() => {
 					statusEl.textContent = 'Không thể tải nội dung. Đảm bảo dev server đang chạy.';

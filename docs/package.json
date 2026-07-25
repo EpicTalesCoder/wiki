@@ -16,6 +16,8 @@
 		"@astrojs/node": "^11.0.2",
 		"@astrojs/starlight": "0.38.3",
 		"astro": "6.1.8",
+		"marked": "^18.0.7",
+		"shiki": "^1.0.0",
 		"astro-og-canvas": "^0.13.0",
 		"canvaskit-wasm": "^0.41.1",
 		"sharp": "^0.34.5",
