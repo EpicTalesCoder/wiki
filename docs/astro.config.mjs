@@ -66,5 +66,12 @@ export default defineConfig({
         }),
     ],
     devToolbar: { enabled: false },
+    // Allow access from any hostname (Heroku dyno URL, custom domains, etc.).
+    // Vite dev server blocks unknown hosts by default since Vite 7.
+    vite: {
+        server: {
+            allowedHosts: true,
+        },
+    },
 });
 // reload-stamp: 1784984738785
