@@ -1,23 +1,36 @@
-# Single-stage image: build the Astro SSR site and run it with Node.
-# (@astrojs/node standalone reads the PORT env var that Heroku injects.)
+# Run the Astro DEV server on Heroku (NOT a production build).
+#
+# WHY dev mode: the inline "edit page" feature (EditLink.astro override,
+# BlogAdmin, DocsAdmin, /api/* routes) relies on three things that only exist
+# in `astro dev`:
+#   1. content-collection entry.filePath  — used to show the edit button
+#   2. Vite file-watcher (HMR)            — reloadDevServer() touches config
+#                                            files to trigger a dev-server
+#                                            restart so edits appear instantly
+#   3. on-demand page rendering           — pages are NOT pre-built, so editing
+#                                            a .mdx file updates the live page
+#
+# Tradeoffs vs production build:
+#   - Slower page loads (no bundling/optimisation, compiled on each request)
+#   - Higher memory usage (Vite keeps modules hot in memory)
+#   - Ephemeral filesystem: edits made via the web editor are LOST when the
+#     dyno restarts (every ~24h or on every new deploy). Commit changes to
+#     git periodically if you want them to persist.
 FROM node:24-alpine
 RUN corepack enable && corepack prepare pnpm@11.14.0 --activate
 WORKDIR /app
 
-# Use the committed lockfile verbatim so the Heroku build installs the EXACT
-# same versions that work locally. If package.json drifts from the lockfile,
-# the build fails loudly here instead of silently resolving incompatible
-# versions (which previously pulled @astrojs/node versions too new for astro).
-# Always run `pnpm install` locally and commit pnpm-lock.yaml before pushing.
 ENV HEROKU_APP_NAME=heroku
+ENV HOST=0.0.0.0
+
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY packages/starlight-theme-obsidian/package.json ./packages/starlight-theme-obsidian/
 COPY docs/package.json ./docs/
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
-# Build the SSR site (skip `astro check` so the deploy isn't blocked by type lint).
+# Copy all source so the dev server can read/write .mdx files and watch for changes.
 COPY . .
-RUN pnpm --filter docs exec astro build
 
-# @astrojs/node standalone listens on process.env.PORT (Heroku) / process.env.HOST.
-CMD ["node", "./docs/dist/server/entry.mjs"]
+# astro dev: reads PORT from env (Heroku injects it), --host binds 0.0.0.0.
+# Shell form so ${PORT} expands at runtime.
+CMD ["sh", "-c", "pnpm --filter docs exec astro dev --host 0.0.0.0 --port ${PORT:-4321}"]
