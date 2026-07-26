@@ -57,8 +57,8 @@ importers:
         specifier: ^0.5.0
         version: 0.5.0(@astrojs/starlight@0.38.3(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0)))(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0))
       starlight-theme-obsidian:
-        specifier: file:../packages/starlight-theme-obsidian
-        version: file:packages/starlight-theme-obsidian(@astrojs/starlight@0.38.3(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0)))(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0))(starlight-site-graph@0.5.0(@astrojs/starlight@0.38.3(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0)))(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0)))
+        specifier: workspace:*
+        version: link:../packages/starlight-theme-obsidian
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -2568,16 +2568,6 @@ packages:
       '@astrojs/starlight':
         optional: true
       pixi-stats:
-        optional: true
-
-  starlight-theme-obsidian@file:packages/starlight-theme-obsidian:
-    resolution: {directory: packages/starlight-theme-obsidian, type: directory}
-    peerDependencies:
-      '@astrojs/starlight': ^0.38.0
-      astro: ^6.0.0
-      starlight-site-graph: ^0.5.0
-    peerDependenciesMeta:
-      starlight-site-graph:
         optional: true
 
   statuses@2.0.2:
@@ -6451,13 +6441,6 @@ snapshots:
       micromatch: 4.0.8
     optionalDependencies:
       '@astrojs/starlight': 0.38.3(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0))
-
-  starlight-theme-obsidian@file:packages/starlight-theme-obsidian(@astrojs/starlight@0.38.3(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0)))(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0))(starlight-site-graph@0.5.0(@astrojs/starlight@0.38.3(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0)))(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0))):
-    dependencies:
-      '@astrojs/starlight': 0.38.3(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0))
-      astro: 6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0)
-    optionalDependencies:
-      starlight-site-graph: 0.5.0(@astrojs/starlight@0.38.3(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0)))(astro@6.4.8(@types/node@24.13.3)(rollup@4.62.2)(yaml@2.9.0))
 
   statuses@2.0.2: {}
 
