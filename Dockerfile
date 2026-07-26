@@ -4,14 +4,16 @@ FROM node:24-alpine
 RUN corepack enable && corepack prepare pnpm@11.14.0 --activate
 WORKDIR /app
 
-# Some builds land here with a lockfile that is slightly behind package.json
-# (e.g. right after a dependency is added). --no-frozen-lockfile lets pnpm
-# reconcile instead of failing the whole build.
+# Use the committed lockfile verbatim so the Heroku build installs the EXACT
+# same versions that work locally. If package.json drifts from the lockfile,
+# the build fails loudly here instead of silently resolving incompatible
+# versions (which previously pulled @astrojs/node versions too new for astro).
+# Always run `pnpm install` locally and commit pnpm-lock.yaml before pushing.
 ENV HEROKU_APP_NAME=heroku
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY packages/starlight-theme-obsidian/package.json ./packages/starlight-theme-obsidian/
 COPY docs/package.json ./docs/
-RUN pnpm install --no-frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 # Build the SSR site (skip `astro check` so the deploy isn't blocked by type lint).
 COPY . .
