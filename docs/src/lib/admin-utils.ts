@@ -248,7 +248,7 @@ function patchFrontmatterLines(
         if (value === undefined) continue;
         const idx = lines.findIndex((line) => {
             const m = line.match(/^([\w-]+):/);
-            return Boolean(m) && m[1] === key;
+            return m !== null && m[1] === key;
         });
         const replacement = `${key}: ${value}`;
         if (idx >= 0) lines[idx] = replacement;
